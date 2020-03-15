@@ -1,0 +1,22 @@
+==============================================
+Control + Fn + F2 -> 选中 Menu Bar 中的 
+Control + Fn + F3 -> 选中 Dock
+Control + Fn + F1 -> 打开或关闭上述两个快捷键
+==============================================
+「设置-键盘-快捷键-应用快捷键」-> 为菜单命令创建快捷键
+Option + Command + V -> 剪切
+Command + E -> 退出磁盘映像
+Option + Command + E -> 同时推出多个磁盘分区
+alfred Eject -> 退出外置磁盘
+Command + ~ -> 切换Google浏览器窗口
+Control + Tab -> 切换Google浏览器Tab
+Command + Option + H -> 隐藏其他的所有非全屏窗口
+Command + Option +/- -> 快速开启桌面放大镜功能
+Option + F1/F2/F3/F9(系统) -> 打开对应的偏好设置
+
+#Delete
+按 delete 键，实现 Windows 键盘上退格键的功能，也就是删除光标之前的一个字符（默认）
+ fn+delete 键，删除光标之后的一个字符；
+option+delete 键，删除光标之前的一个单词（英文有效）；
+command+delete 键，删除光标之前整行内容；
+command+delete，删除掉该文件；FFf∂
