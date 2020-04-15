@@ -1,3 +1,4 @@
+==A
 :A 头文件／源文件切换
 :AS 分割窗后并切换头/源文件(切割为上下两个窗口)
 :AV 垂直切割窗口后切换头/源文件(切割为左右两个窗口)
@@ -15,6 +16,14 @@
 <Leader>ihn 在多个匹配文件间循环切换
 *<Leader>指Vim所定义的映射(map)前缀，在Vim配置文件中可过变量'mapleader'进行设置，缺省为'\'。
 
+
+== hledger
+
+<leader><leader>lo 打开默认记账本
+<leader><leader>ll 账户记录对齐
+<leader><leader>la 分屏中列出所有账户名称,可yy复制
+<leader><leader>lt 分屏中打开所有以模板开头的tag
+<leader><leader>lr 提示输入参数
 
 
 
