@@ -1,0 +1,4 @@
+
+
+查看资产负债表
+hledger -f myledger.ledger balancesheet
