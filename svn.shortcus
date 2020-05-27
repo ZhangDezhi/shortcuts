@@ -1,0 +1,52 @@
+
+
+- repository（源代码库）:源代码统一存放的地方
+- Checkout（提取）:当你手上没有源代码的时候，你需要从repository checkout一份
+- Commit（提交）:当你已经修改了代码，你就需要Commit到repository
+- Update (更新):当你已经Checkout了一份源代码,Update一下你就可以和Repository上的源代码同步，你手上的代码就会有最新的变更
+
+
+##检出
+```
+$ svn co svn//url  -rxxx
+$ svn checkout svn://192.168.0.1/runoob01 --username=user01
+```
+
+## 更新
+```bash
+$ svn update
+```
+
+## 提交）
+```
+$ svn status 查看工作副本的状态
+$ svn add 将新建的文件添加到版本控制
+$ svn commit -m "SVN readme."     # -m后面是本次提交的说明
+
+```
+
+## 版本回退
+```
+$ svn up -r 123
+
+# 待了解
+$ svn revert -R dir_name
+$ svn merge -r 22:21 file_name
+```
+
+## 查看历史
+```
+
+    svn log: 用来展示svn 的版本作者、日期、路径等等。
+    svn diff: 用来显示特定修改的行级详细信息。
+    svn cat: 取得在特定版本的某文件显示在当前屏幕。
+    svn list: 显示一个目录或某一版本存在的文件。
+
+```
+
+## 导出文件
+```bash
+$ svn export -r 2232 http://127.0.0.1/svn/project001
+#默认为最新
+$ svn export <url> directoryname
+```
