@@ -47,7 +47,78 @@ set fdm=manual
 :mkview   保存当前折叠
 :loadview  载入当前折叠
 
+
 ## 自定义
+ ;tm | 标格模式
+ ;a= | =号对齐
+ ;f  | 快速搜索
+ F2  | 打开winmanager
+ F4  | 切换头文件和实现文件
+ F12 | 下一个主题
+ F11 | 上一个主题
+[[   | 跳转到折叠开头
+]]   | 跳转到折叠结尾
+
+## 自动输入括号
+#
+  Old text                  Command     New text ~
+  "Hello *world!"           ds"         Hello world!
+  [123+4*56]/2              cs])        (123+456)/2
+  "Look ma, I'm *HTML!"     cs"<q>      <q>Look ma, I'm HTML!</q>
+  if *x>3 {                 ysW(        if ( x>3 ) {
+  my $str = *whee!;         vllllS'     my $str = 'whee!';
+
+  "Hello *world!"           ds"         Hello world!
+  (123+4*56)/2              ds)         123+456/2
+  <div>Yo!*</div>           dst         Yo!
+
+  "Hello *world!"           cs"'        'Hello world!'
+  "Hello *world!"           cs"<q>      <q>Hello world!</q>
+  (123+4*56)/2              cs)]        [123+456]/2
+  (123+4*56)/2              cs)[        [ 123+456 ]/2
+  <div>Yo!*</div>           cst<p>      <p>Yo!</p>
+
+  Hello w*orld!             ysiw)       Hello (world)!
+
+  Hello w*orld!             yssB        {Hello world!}
+
+  "hello"                   ysWfprint<cr>     print("hello")
+  "hello"                   ysWFprint<cr>     print( "hello" )
+  "hello"                   ysW<C-f>print<cr> (print "hello")
+
+"cs"'   : 替换  "Hello"-> 'Hello'
+"cs'<q> : 添加 -> 添加
+"ds"    : "删除" -> 删除
+"ysiw]  : 添加  -> [添加]
+"ysiw<q> : Hello -> <q>Hello</q>
+"yssb 或者 yss) : 整行添加括号
+
+
+## 插件-minimap
+;mo 打开
+;mu 刷新
+;mc 关闭
+;mm 切换
+
+## 插件- Tabularize
+;a  开启对齐
+## 插件-DrawIt
+
+  ;di | start DrawIt 
+  ;ds | stop  DrawIt 
+
+## 插件-vim-bookmarks
+mm 添加/删除书签
+mi 添加编辑书签mm
+mn 跳转到当前buffer的下一个书签
+mp 跳转到上一个书签
+ma 在quickfix 窗口列出所有书签
+mc 清除当前buffer所有书签
+mx 清除所有buffer 内的书签
+:BookmarkSave < file>  : 保存到文件
+:BookmarkLoad <file > : 从文件读取
+
+
 ## 导航
 
 
