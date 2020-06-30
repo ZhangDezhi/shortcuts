@@ -1,0 +1,29 @@
+/
+/bin
+/boot
+/dev
+/etc
+/home
+/lib
+/lost+found
+/mnt
+/opt
+/proc
+/root
+/sbin
+/tmp
+/usr
+/var
+
+
+
+rmdir  删除空目录
+ps aux  查看系统进程
+kill -9 pid  杀死进程
+w           显示在线用户
+du  显示目录下各个文件磁盘占用情况
+du -s 显示目录下所有文件的大小
+wc   统计文件
+df   查看系统硬盘信息
+free   查看系统内存信息
+halt   关闭计算机
