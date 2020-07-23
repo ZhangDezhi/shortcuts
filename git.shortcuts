@@ -12,42 +12,56 @@ $ git init  #初始化本地版本库
 # 修改和提交
 
 ```
-$ git status  #查看状态
-$ git diff  #查看变更内容
-$ git add .  #跟踪所有改动过的文件
-$ git add <file>  #跟踪指定的文件
-$ git mv <old> <new>  #文件更名
-$ git rm <file>  #删除文件
-$ git rm --cached <file>  #停止跟踪文件但不删除
-$ git commit -m "commit message"  #提交所有更新过的文件
-$ git commit --amend  #修改最后一次提交
-$ git stash  #临时储藏工作到stash
-$ git stash list  #查看stash内容
-$ git stash apply  #恢复stash内容
-$ git stash drop  #删除stash内容
-$ git stash pop  #恢复并删除stash内容
+$ git status                     # 查看状态
+$ git diff                       # 查看变更内容
+$ git add .                      # 跟踪所有改动过的文件
+$ git add <file>                 # 跟踪指定的文件
+$ git mv <old> <new>             # 文件更名
+$ git rm <file>                  # 删除文件
+$ git rm --cached <file>         # 停止跟踪文件但不删除
+$ git commit -m "commit message" # 提交所有更新过的文件
+$ git commit --amend             # 修改最后一次提交
+```
+# 贮藏
+
+```
+$ git stash                      # 临时储藏工作到stash
+$ git stash list                 # 查看stash内容
+$ git stash apply                # 恢复stash内容
+$ git stash drop                 # 删除stash内容
+$ git stash pop                  # 恢复并删除stash内容
+
+
 ```
 # 查看提交历史
 
 ```
-$ git log  #查看提交历史，确定回退版本
-$ git reflog  #查看命令历史，确定未来版本
-$ git log -p <file>  #查看指定文件的提交历史
-$ git blame <file>  #以列表方式查看指定文件的提交历史
-$ git log --graph  #查看分支合并图
-$ git log --graph --pretty=oneline --abbrev-commit  #以行方式查看分支合并图
+$ git log                                          # 查看提交历史，确定回退版本
+$ git log -1                                       # 显示最近的1条log
+$ git reflog                                       # 查看命令历史，确定未来版本
+$ git log -p <file>                                # 查看指定文件的提交历史
+$ git blame <file>                                 # 以列表方式查看指定文件的提交历史
+$ git log --graph                                  # 查看分支合并图
+$ git log --graph --pretty=oneline --abbrev-commit # 以行方式查看分支合并图
+$ git log --pretty=format:"%h %cd" --name-only -5  # 显示hash和时间
+$ git log --pretty=format:"%h %cd" -5              # 查看修改时间
 ```
- # 撤销
+# 撤销
 
 ```
-$ git reset --hard HEAD  #撤销工作目录中所有的未提交
-$ git checkout HEAD <file>  #撤销指定的未提交文件的修改内容
-$ git checkout --file  #直接撤销指定文件的修改内容
-$ git revert <commit>  #撤销指定的提交
-$ git reset --hard commit_id  #回到指定版本
-$ 
+$ git reset --hard HEAD      # 撤销工作目录中所有的未提交
+$ git reset --hard commit_id # 回到指定版本,不保留修改
+$ git reset --soft commit_id # 回到指定版本,保留修改
+$ git checkout HEAD <file>   # 撤销指定的未提交文件的修改内容
+$ git checkout --file        # 直接撤销指定文件的修改内容
+$ git revert <commit>        # 撤销指定的提交
+$ git checkout .             # 本地所有修改的,没有提交的,返回到原来的状态
+$ git clean -n               # 并不删除操作,只显示被清理的文件列表
+$ git clean -f               # 删除文件,不会动.gitignore里的标记
+$ git clean -d               # 删除目录,但不会动.gitignore里的标记
+$ git clean -X               # 仅删除.gitignore里标记的文件
 ```
- # 分支与标签
+# 分支与标签
 
 ```
 $ git branch  #显示所有本地分支
@@ -73,18 +87,40 @@ $ git rebase <branch>  #衍合指定分支到当前分支
 # 远程操作
 
 ```
-$ git remote -v  #查看远程版本库信息
-$ git remote show <remote>  #查看指定远程库信息
-$ git remote add <remote> <url>  #添加远程版本库
-$ git fetch <remote>  #从远程库获取代码
-$ git pull <remote> <branch>  #下载代码并快速合并
-$ git push <remote> <branch>  #上传代码并快速合并
-$ git push -u <remote> <branch>  #第一次上传代码并快速合并
-$ git checkout -b branch-name origin/branch-name  #在本地创建和远程分支对应的分支(名称最好一致)
-$ git branch --set-upstream branch-name origin/branch-name  #建立本地分支和远程分支的关联
-$ git push <remote> : <branch/tagname>  #删除远程分支或标签
-$ git push --tags  #上传所有标签
-$ git push origin <tagname>  #推送一个本地标签
-$ git push origin --tags  #推送全部未推送过的本地标签
+$ git remote -v                                            # 查看远程版本库信息
+$ git remote show <remote>                                 # 查看指定远程库信息
+$ git remote add <remote> <url>                            # 添加远程版本库
+$ git fetch <remote>                                       # 从远程库获取代码
+$ git pull <remote> <branch>                               # 下载代码并快速合并
+$ git push <remote> <branch>                               # 上传代码并快速合并
+$ git push -u <remote> <branch>                            # 第一次上传代码并快速合并
+$ git push -all remote                                     # 推送所有分支
+$ git checkout -b branch-name origin/branch-name           # 在本地创建和远程分支对应的分支(名称最好一致)
+$ git branch --set-upstream branch-name origin/branch-name # 建立本地分支和远程分支的关联
+$ git push <remote> : <branch/tagname>                     # 删除远程分支或标签
+$ git push --tags                                          # 上传所有标签
+$ git push origin <tagname>                                # 推送一个本地标签
+$ git push origin --tags                                   # 推送全部未推送过的本地标签
 ```
 
+# 导出文件
+
+```bash
+
+$ git diff d20f63f 7f79753 --name-only | xargs tar -czvf ../update.tar.gz   #导出两个版本的差异文件
+$ git diff d20f63f 7f79753 --name-only | xargs zip update.zip
+$2020/07/03 git diff d20f63f HEAD --name-only | xargs zip update.zip   #导出到最新版本的文件
+```
+# 补丁
+```bash
+#创建补丁
+$ git format-patch -M master # 当前分支所有超前master的提交
+$ git format-patch -s 4e16   # 某次提交以后所有的
+$ git format-patch -1        # 单次提交
+$ git format-patch -3        # 从master往前3个提交
+#应用补丁
+$ git apply --start xxx.patch  #先检查patch文件
+$ git apply --check xxx.patch  #检查能否应用补丁
+$ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加入Signed-off-by 信息)
+
+```
