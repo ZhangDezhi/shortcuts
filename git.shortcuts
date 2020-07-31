@@ -124,3 +124,18 @@ $ git apply --check xxx.patch  #检查能否应用补丁
 $ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加入Signed-off-by 信息)
 
 ```
+
+# git-svn
+
+```bash
+ $ git svn clone https://172.16.0.241:8443/svn/wsgjp/ -r 76896:HEAD --no-metadata --authors-file=svnuser.text --trunk=svnproject --branches=svnbranch yourGitProject
+
+   #  r指定起止版本号。
+   #   no-metadata阻止git导出SVN包含的一些无用信息。
+   #   authors-file必须指定svn帐号在git中的映射。
+   #   trunk指定导出仓库的主干项目路径。
+   #   branches指定svn的分支项目路径。
+	
+ $ git svn --username=ZhangDezhi clone https://172.16.4.234/svn/ 
+
+```

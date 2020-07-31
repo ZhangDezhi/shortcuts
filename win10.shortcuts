@@ -1,19 +1,25 @@
-输入法切换 win + 空格
-中英文切换 shift + alt
+## 系统
+win    + 空格          | 输入法切换
+shift  + alt           | 中英文切换
+window + 左右          | 实现左屏/右屏
+window + 左右 + 上下   | 实现左右四分之一屏
+window + ctrl + d      | 新建桌面
+window + tab           | 打开任务视图
+window + Shift + S     | 截图
+window + ctrl   + F4   | 删除当前虚拟桌面
+window + ctrl   + D    | 创建虚拟桌面
+window + ctrl   + 左右 | 切换桌面
 
-window + 左右方向键 实现左屏/右屏   
-window + 左右方向键 + 上下方向键 实现左右四分之一屏
-
-
-================================== 多桌面
-ctrl + window + d   新建桌面
-window + tab  打开虚拟桌面
-ctrl + alt + 左右   切换桌面  
-打开虚拟桌面  win + tab
-
-window + Shift + S   截图
-
-# RTX
-Ctrl + Alt + X  提取消息。
+## RTX
+Ctrl + Alt + L 提取消息。
 Ctrl + Alt + p  截屏
 Alt（两次） 计划搜索栏 
+
+
+## 资源管理器
+Alt + 左右  | 前后后退
+Alt + 上    | 上一级
+Alt + Enter | 属性
+Alt + D | 地址栏
+Ctrl + E | 搜索栏
+Alt + P | 打开预览
