@@ -27,3 +27,95 @@ wc   统计文件
 df   查看系统硬盘信息
 free   查看系统内存信息
 halt   关闭计算机
+
+命令搜集
+
+
+查看ascii
+
+```bash
+
+$ man 7 ascii
+```
+```
+#简表说明
+   Tables
+       For convenience, let us give more compact tables in hex and decimal.
+
+          2 3 4 5 6 7       30 40 50 60 70 80 90 100 110 120
+        -------------      ---------------------------------
+       0:   0 @ P ` p     0:    (  2  <  F  P  Z  d   n   x
+       1: ! 1 A Q a q     1:    )  3  =  G  Q  [  e   o   y
+       2: " 2 B R b r     2:    *  4  >  H  R  \  f   p   z
+       3: # 3 C S c s     3: !  +  5  ?  I  S  ]  g   q   {
+       4: $ 4 D T d t     4: "  ,  6  @  J  T  ^  h   r   |
+       5: % 5 E U e u     5: #  -  7  A  K  U  _  i   s   }
+       6: & 6 F V f v     6: $  .  8  B  L  V  `  j   t   ~
+       7: ? 7 G W g w     7: %  /  9  C  M  W  a  k   u  DEL
+       8: ( 8 H X h x     8: &  0  :  D  N  X  b  l   v
+       9: ) 9 I Y i y     9: ?  1  ;  E  O  Y  c  m   w
+       A: * : J Z j z
+       B: + ; K [ k {
+       C: , < L \ l |
+       D: - = M ] m }
+       E: . > N ^ n ~
+       F: / ? O _ o DEL
+
+
+    左侧为 16 进制，0-F：表示低位，2-7：高位；
+    右侧为 10 进制，0-9：表示低位，30-120：高位；
+
+```
+
+
+# ls
+
+ls -a 查看所有文件
+ls -l 查看详细信息
+ls -lh 文件大小显示为M
+
+
+
+
+
+```bash
+# 有些时候查询大于多少M的文件时候需要显示文件大小，组合命令如下
+$ find /opt/ -size +1G -exec ls -lh {} \;
+
+#查找所有的core文件
+find ~/ -name "core.[0-9]???"
+
+#查找&显示文件大小
+find ~/ -name "core.[0-9]???" -exec ls -lh {} \;
+
+```
+
+
+图元文件
+ /home/mas/uif/element/patrolGroup
+
+
+ 将命令输出作为输入
+ ```bash
+ #方法1 是用 ``
+ #方法2 使用xargs
+
+#查看日期
+$ date +%Y-%m-%d,%H:%m:%s
+
+#查找某天修改的文件
+$ find . -maxdepth 1 -newermt "2016-12-06"
+$ find . -maxdepth 1 -newermt "12/06/16"
+$ find . -maxdepth 1 -newermt "12/06/2016"
+$ find . -maxdepth 1 -newermt  `date +%Y-%m-%d`
+
+#将某天修改的文件复制到桌面
+$ cp ` find . -maxdepth 1 -newermt "2020-05-15"` ~/Desktop/
+$ cp ` find ~/lib/ -maxdepth 1 -newermt $(date +%Y-%m-%d)` ~/Desktop/
+
+
+ ```
+
+
+
+
