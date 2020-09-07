@@ -46,6 +46,13 @@ $ git log --graph --pretty=oneline --abbrev-commit # 以行方式查看分支合
 $ git log --pretty=format:"%h %cd" --name-only -5  # 显示hash和时间
 $ git log --pretty=format:"%h %cd" -5              # 查看修改时间
 ```
+# 版本回退
+```
+$ git log fileName
+$ git checkout <commit-id>  fineName
+
+
+```
 # 撤销
 
 ```

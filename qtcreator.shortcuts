@@ -48,12 +48,15 @@ Ctrl + ]	          跳到代码块的尾部
 Ctrl + L 	跳到某一行
 ```
 
+# Desiner
+
 # 调试部分
 
 ```
-Ctrl + B  	 编译工程
-Ctrl+Shift+B     编译所有项目
-Ctrl + R 	 运行工程
+Ctrl  + B  	        编译工程(只构建)
+Ctrl  + R 	        运行工程
+Ctrl  + Shift + B   编译所有项目
+Shift + Alt   + R   Desiner预览
 
 F5  	开始调试
 ⇧ + F5  停止调试
