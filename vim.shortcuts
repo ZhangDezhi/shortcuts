@@ -9,6 +9,11 @@
 vip     快速选择段落 
 
 
+set ff       查看回车换行模式
+set ff=unix  设置回车为Unix(LRCF)
+set ff=dos   设置回车为Win(LFCF)
+set fileencoding  查看文件使用编码
+
 ## 折叠
 
 | 折叠方法 | 描述               |

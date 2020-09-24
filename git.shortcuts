@@ -1,17 +1,21 @@
+# git快捷命令查询
+> 
 `master`：默认开发分支
 `origin`：默认远程版本库
 `Head`：默认开发分支
 `Head^`：Head的父提交
 
-# 创建版本库
+## 创建版本库
 
-```
+```bash
 $ git clone <url>  #克隆远程版本库
 $ git init  #初始化本地版本库
 ```
-# 修改和提交
 
-```
+
+## 修改和提交
+
+``` bash
 $ git status                     # 查看状态
 $ git diff                       # 查看变更内容
 $ git add .                      # 跟踪所有改动过的文件
@@ -22,7 +26,9 @@ $ git rm --cached <file>         # 停止跟踪文件但不删除
 $ git commit -m "commit message" # 提交所有更新过的文件
 $ git commit --amend             # 修改最后一次提交
 ```
-# 贮藏
+
+
+## 贮藏
 
 ```
 $ git stash                      # 临时储藏工作到stash
@@ -30,10 +36,10 @@ $ git stash list                 # 查看stash内容
 $ git stash apply                # 恢复stash内容
 $ git stash drop                 # 删除stash内容
 $ git stash pop                  # 恢复并删除stash内容
-
-
 ```
-# 查看提交历史
+
+
+## 查看提交历史
 
 ```
 $ git log                                          # 查看提交历史，确定回退版本
@@ -46,14 +52,17 @@ $ git log --graph --pretty=oneline --abbrev-commit # 以行方式查看分支合
 $ git log --pretty=format:"%h %cd" --name-only -5  # 显示hash和时间
 $ git log --pretty=format:"%h %cd" -5              # 查看修改时间
 ```
-# 版本回退
+
+
+## 版本回退
+
 ```
 $ git log fileName
 $ git checkout <commit-id>  fineName
-
-
 ```
-# 撤销
+
+
+## 撤销
 
 ```
 $ git reset --hard HEAD      # 撤销工作目录中所有的未提交
@@ -68,7 +77,9 @@ $ git clean -f               # 删除文件,不会动.gitignore里的标记
 $ git clean -d               # 删除目录,但不会动.gitignore里的标记
 $ git clean -X               # 仅删除.gitignore里标记的文件
 ```
-# 分支与标签
+
+
+## 分支与标签
 
 ```
 $ git branch  #显示所有本地分支
@@ -83,7 +94,7 @@ $ git tag -a <tagname> -m "tag message"  #指定标签信息
 $ git tag -d <tagname>  #删除标签
 ```
 
-# 合并与衍合
+## 合并与衍合
 
 ```
 $ git merge <branch>  #合并指定分支到当前分支
@@ -91,7 +102,9 @@ $ git merge --no-ff -m "merge message" <branch>  #使用普通模式合并指定
 $ git rebase <branch>  #衍合指定分支到当前分支
 ```
 
-# 远程操作
+
+
+## 远程操作
 
 ```
 $ git remote -v                                            # 查看远程版本库信息
@@ -110,39 +123,46 @@ $ git push origin <tagname>                                # 推送一个本地�
 $ git push origin --tags                                   # 推送全部未推送过的本地标签
 ```
 
-# 导出文件
+
+
+## 导出文件
 
 ```bash
-
 $ git diff d20f63f 7f79753 --name-only | xargs tar -czvf ../update.tar.gz   #导出两个版本的差异文件
 $ git diff d20f63f 7f79753 --name-only | xargs zip update.zip
 $2020/07/03 git diff d20f63f HEAD --name-only | xargs zip update.zip   #导出到最新版本的文件
 ```
-# 补丁
+
+
+## 补丁
 ```bash
-#创建补丁
+     #创建补丁
 $ git format-patch -M master # 当前分支所有超前master的提交
 $ git format-patch -s 4e16   # 某次提交以后所有的
 $ git format-patch -1        # 单次提交
 $ git format-patch -3        # 从master往前3个提交
-#应用补丁
+     #应用补丁
 $ git apply --start xxx.patch  #先检查patch文件
 $ git apply --check xxx.patch  #检查能否应用补丁
 $ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加入Signed-off-by 信息)
 
 ```
 
-# git-svn
+
+
+## git-svn
 
 ```bash
  $ git svn clone https://172.16.0.241:8443/svn/wsgjp/ -r 76896:HEAD --no-metadata --authors-file=svnuser.text --trunk=svnproject --branches=svnbranch yourGitProject
 
-   #  r指定起止版本号。
-   #   no-metadata阻止git导出SVN包含的一些无用信息。
-   #   authors-file必须指定svn帐号在git中的映射。
-   #   trunk指定导出仓库的主干项目路径。
-   #   branches指定svn的分支项目路径。
+  #  r指定起止版本号。
+  #   no-metadata阻止git导出SVN包含的一些无用信息。
+  #   authors-file必须指定svn帐号在git中的映射。
+  #   trunk指定导出仓库的主干项目路径。
+  #   branches指定svn的分支项目路径。
 	
  $ git svn --username=ZhangDezhi clone https://172.16.4.234/svn/ 
-
+ $ git svn fetch --ignore-files=commit/abc/ddd.txt
+ $ git svn fetch --ignore-files  commit/abc/ddd.txt
+ $ git svn fetch --ignore-paths path/up/to/filename
 ```
