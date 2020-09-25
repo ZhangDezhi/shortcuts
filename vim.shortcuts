@@ -1,61 +1,68 @@
 # 快捷键操作
-快速查找选中词 
 
-1: * 向下查找并高亮显示
-2: # 向上查找并高亮显示
-3: g + d 高亮显示光标所属单词，“n” 查找！
-4: tab + tab + *   选中字符串
+##快速查找选中词 
 
-vip     快速选择段落 
+```vim 
+ *             | 向下查找并高亮显示
+ #             | 向上查找并高亮显示
+ g + d         | 高亮显示光标所属单词，“n” 查找！
+ tab + tab + * | 选中字符串
+ vip           | 快速选择段落
+```
 
 
-set ff       查看回车换行模式
-set ff=unix  设置回车为Unix(LRCF)
-set ff=dos   设置回车为Win(LFCF)
-set fileencoding  查看文件使用编码
+
 
 ## 折叠
-
+> 每种折叠方法不兼容
++----------+--------------------+
 | 折叠方法 | 描述               |
-|----------|--------------------|
++----------+--------------------|
 | manual   | 手工折叠           |
 | indent   | 缩进折叠           |
 | marker   | 标记折叠           |
 | syntax   | 语法折叠           |
 | expr     | 表达式折叠         |
 | diff     | 没有更改的文件折叠 |
++----------+--------------------+
 
-每种折叠方法不兼容,
-set fdm=manual
+```vim 
+ zi               | 打开/禁用折叠
+ zn               | 禁用折叠
+ zN               | 启用折叠
+                  |
+ zf               | 创建折叠
+ zf20G            | 当前行折叠到第20行
+ zfgg             | 当前行折叠到文件开始
+ zf%              | 折叠到匹配符号
+ zfa(             | 折叠括号（比如()、[]、{}、><等）包围的区域
+ zd               | manual,marker 删除当前折叠 delete
+ zD               | manual,marker 删除当前折叠,嵌套折叠
+                  |
+ zr               | 一次打开所有折叠
+ zR               | 打开所有折叠及嵌套折折叠
+ zm               | 一次关闭所有折叠
+ zM               | 关闭所有折叠及嵌套折叠
+                  |
+ za               | 打开/关闭当前折叠
+ zo               | 打开折叠 open
+ zc               | 关闭折叠 close
+                  |
+ zE               | manual,marker  删除所有折叠
+ zj               | 移动到下一个折叠
+ zk               | 移动到上一个折叠
+:set fdm=manual   | 切换折叠方案
+:mkview           | 保存当前折叠
+:loadview         | 载入当前折叠
 
-| 快捷命令 | 说明                                       |
-|----------|--------------------------------------------|
-| zf       | 创建折叠                                   |
-| zf20G    | 当前行折叠到第20行                         |
-| zfgg     | 当前行折叠到文件开始                       |
-| zf%      | 折叠到匹配符号                             |
-| zfa(     | 折叠括号（比如()、[]、{}、><等）包围的区域 |
-| zo       | 打开折叠 open                              |
-| zc       | 关闭折叠 close                             |
-| zd       | manual,marker 删除当前折叠 delete          |
-| zD       | manual,marker 删除当前折叠,嵌套折叠        |
-| zr       | 一次打开所有折叠                           |
-| zR       | 打开所有折叠及嵌套折折叠                   |
-| zm       | 一次关闭所有折叠                           |
-| zM       | 关闭所有折叠及嵌套折叠                     |
-| za       | 打开/关闭当前折叠                          |
-| zE       | manual,marker  删除所有折叠                |
-| zj       | 移动到下一个折叠                           |
-| zk       | 移动到上一个折叠                           |
-| zn       | 禁用折叠                                   |
-| zN       | 启用折叠                                   |
 
 
-:mkview   保存当前折叠
-:loadview  载入当前折叠
+#  插件快捷键 
 
+ 
+## 常用快捷键自定义
 
-## 自定义
+```vim
  ;tm | 标格模式
  ;a= | =号对齐
  ;f  | 快速搜索
@@ -65,56 +72,66 @@ set fdm=manual
  F11 | 上一个主题
 [[   | 跳转到折叠开头
 ]]   | 跳转到折叠结尾
+```
 
 ## 自动输入括号
-#
-  Old text                  Command     New text ~
-  "Hello *world!"           ds"         Hello world!
-  [123+4*56]/2              cs])        (123+456)/2
-  "Look ma, I'm *HTML!"     cs"<q>      <q>Look ma, I'm HTML!</q>
-  if *x>3 {                 ysW(        if ( x>3 ) {
-  my $str = *whee!;         vllllS'     my $str = 'whee!';
 
-  "Hello *world!"           ds"         Hello world!
-  (123+4*56)/2              ds)         123+456/2
-  <div>Yo!*</div>           dst         Yo!
+```vim 
 
-  "Hello *world!"           cs"'        'Hello world!'
-  "Hello *world!"           cs"<q>      <q>Hello world!</q>
-  (123+4*56)/2              cs)]        [123+456]/2
-  (123+4*56)/2              cs)[        [ 123+456 ]/2
-  <div>Yo!*</div>           cst<p>      <p>Yo!</p>
+ Old text              | Command           | New text ~               |
+ ----------------------+-------------------+--------------------------+--
+ my $str = *whee!;     | vllllS'           | my $str = 'whee!';       | 框选  S 括号
 
-  Hello w*orld!             ysiw)       Hello (world)!
+ "Hello *world!"       | ds"               | Hello world!             |
+ (123+4*56)/2          | ds)               | 123+456/2                |
+ <div>Yo!*</div>       | dst               | Yo!                      |
 
-  Hello w*orld!             yssB        {Hello world!}
-
-  "hello"                   ysWfprint<cr>     print("hello")
-  "hello"                   ysWFprint<cr>     print( "hello" )
-  "hello"                   ysW<C-f>print<cr> (print "hello")
-
-"cs"'   : 替换  "Hello"-> 'Hello'
-"cs'<q> : 添加 -> 添加
-"ds"    : "删除" -> 删除
-"ysiw]  : 添加  -> [添加]
-"ysiw<q> : Hello -> <q>Hello</q>
-"yssb 或者 yss) : 整行添加括号
+ "Hello *world!"       | cs"'              | 'Hello world!'           |
+ "Hello *world!"       | cs"<q>            | <q>Hello world!</q>      |
+ (123+4*56)/2          | cs)]              | [123+456]/2              |
+ (123+4*56)/2          | cs)[              | [123+456]/2              |
+ [123+4*56]/2          | cs])              | (123+456)/2              |
+ <div>Yo!*</div>       | cst<p>            | <p>Yo!</p>               |
+ 
+ Hello w*orld!         | ysiw)             | Hello (world)!           |
+ Hello w*orld!         | ysiw<q>           | Hello <q>world</q>!      |
+ Hello w*orld!         | yssB              | {Hello world!}           |
+ Hello w*orld!         | yssb              | (Hello world!)           |
+ Hello w*orld!         | yss)              | (Hello world!)  整行添加 |
+ if *x>3 {             | ysW(              | if ( x>3 ) {             |
+ *"hello"              | ysWfprint<cr>     | print("hello")           | <cr> 表示回车
+ *"hello"              | ysWFprint<cr>     | print( "hello" )         | <cr> 表示回车
+ *"hello"              | ysW<C-f>print<cr> | (print "hello")          | <cr> 表示回车<C-F> 表示ctrl+f
+```
 
 
-## 插件-minimap
-;mo 打开
-;mu 刷新
-;mc 关闭
-;mm 切换
+## minimap
 
-## 插件- Tabularize
-;a  开启对齐
-## 插件-DrawIt
+```vim
+;mo | 打开
+;mu | 刷新
+;mc | 关闭
+;mm | 切换
+```
 
+## Tabularize
+```vim
+;a  |开启对齐
+;a= | 等号对齐
+```
+
+
+
+
+## DrawIt
+```vim
   ;di | start DrawIt 
   ;ds | stop  DrawIt 
+```
 
-## 插件-vim-bookmarks
+
+## vim-bookmarks
+```vim 
 mm 添加/删除书签
 mi 添加编辑书签mm
 mn 跳转到当前buffer的下一个书签
@@ -124,7 +141,7 @@ mc 清除当前buffer所有书签
 mx 清除所有buffer 内的书签
 :BookmarkSave < file>  : 保存到文件
 :BookmarkLoad <file > : 从文件读取
-
+```
 
 ## 导航
 
@@ -295,7 +312,7 @@ numG：移动光标到指定的行（num）。（比如10G就是到第10行）
 
 gg：到文件首
 H：移动光标到屏幕上面
-M：移动光标到屏幕中间
+：移动光标到屏幕中间
 L：移动光标到屏幕下面
 
 *：读取光标处的字符串，并且移动光标到它再次出现的地方。
@@ -426,3 +443,11 @@ q：结束宏的记录。
 <<：和上面类似，但是反缩进
 gd：到达光标所在处函数或者变量的定义处。
 K：在Man里面查找光标当前所在处的词。
+
+# 插件-Graphviz
+:Graphviz            ; 打开编译后文件(默认pdf)
+:Graphviz png        ; 打开编译后文件(png)
+:GraphvizCompile     ; 编译(默认pdf)
+:GraphvizComplie png ; 编译成(png)
+:Graphviz!           ; 编译并打开
+
