@@ -1,6 +1,6 @@
 # 快捷键操作
 
-##快速查找选中词 
+##快速查找选中词 （系统）
 
 ```vim 
  *             | 向下查找并高亮显示
@@ -8,8 +8,35 @@
  g + d         | 高亮显示光标所属单词，“n” 查找！
  tab + tab + * | 选中字符串
  vip           | 快速选择段落
+ =             | 框选脚本 快速格式化
 ```
 
+##快速查找选中词 （自定义）
+
+```vim 
+jj  |  进入normal模式
+<C-b>n  | 下一个缓冲区
+<C-b>p  | 上一个缓存区
+<C-a>   |  <Home>
+<C-e>   |  <End>
+<C-p>   |  <Up>
+<C-n>   |  <Dn>
+<C-b>   |  <Lf>
+<C-f>   |  <Rt>
+<C-d>   |  <Del>
+
+```
+
+
+## 快速设置
+
+```vim 
+:set encoding              | 查看终端显示编码（默认是根据你的locale选择.）
+:set encoding=UTF-8        | 设置终端显示编码
+:set fileencoding=UTF-8    | 设置当前编辑文件字符编码
+:set fileencodings         | 字符编码列表
+:set termencoding          | 终端使用的编码
+```
 
 
 
@@ -54,7 +81,7 @@
 :set fdm=manual   | 切换折叠方案
 :mkview           | 保存当前折叠
 :loadview         | 载入当前折叠
-
+```
 
 
 #  插件快捷键 
