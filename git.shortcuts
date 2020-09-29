@@ -165,4 +165,53 @@ $ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加�
  $ git svn fetch --ignore-files=commit/abc/ddd.txt
  $ git svn fetch --ignore-files  commit/abc/ddd.txt
  $ git svn fetch --ignore-paths path/up/to/filename
+
+```
+
+### git-svn error及处理办法
+
+```bash
+$ git svn rebase
+Index mismatch: ee615f21133503f1f2011b2e89c46c0d582e228c != 142c8a42b8adaa2656c624546390eede25af4ae9
+rereading fc50702418f34c108d78ab56a8353fc30dcce9f5
+        M       component/ialarm/almcore/source/almthread.cpp
+        M       component/ialarm/almcore/source/almsysset.cpp
+        M       component/ialarm/almcore/include/almsysset.h
+        M       component/ialarm/zqtable/source/zqtable.cpp
+        M       component/ialarm/zqtable/include/zqtable.h
+        M       component/ialarm/alarmwindow/source/alarmwindow.cpp
+        M       component/ialarm/alarmwindow/source/eventdlg.cpp
+Checksum mismatch: component/ialarm/修改记录.txt fefcd7d00b80c4397a2b5b2e178eb0e79cb676b8
+expected: c4ac3e14c694193943f6d9268e761ed0
+     got: b92f1dbfaf50541d0dab70bd0ffe994f
+
+### 处理办法:
+
+$ git svn fetch --ignore-paths component/ialarm/修改记录.txt
+$ git svn rebase
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to refs/remotes/git-svn.
+
+
+
+```
+
+
+
+
+为理解部份:
+
+```cmd
+参考: https://blog.csdn.net/weixin_33724659/article/details/85768978
+## git svn rebase出现了checksum mismatch的错误
+## 找到TableForm.cs文件的最后一次日志的svn版本号，目前找到是1701
+$ git svn reset -r1701 -p
+```
+
+
+```cmd
+## 参考: https://stackoverflow.com/questions/4073956/how-do-i-resolve-a-git-svn-index-mismatch
+$ rm -r .git/svn
+$ git svn fetch
+
 ```
