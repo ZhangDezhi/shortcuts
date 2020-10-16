@@ -92,6 +92,7 @@ $ git tag  #列出所有本地标签
 $ git tag <tagname>  #基于最新提交创建标签
 $ git tag -a <tagname> -m "tag message"  #指定标签信息
 $ git tag -d <tagname>  #删除标签
+$ git branch -m old new
 ```
 
 ## 合并与衍合
@@ -121,6 +122,7 @@ $ git push <remote> : <branch/tagname>                     # 删除远程分支�
 $ git push --tags                                          # 上传所有标签
 $ git push origin <tagname>                                # 推送一个本地标签
 $ git push origin --tags                                   # 推送全部未推送过的本地标签
+$ git remote rename 旧名称  新名称
 ```
 
 

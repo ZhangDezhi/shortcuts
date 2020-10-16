@@ -1,0 +1,30 @@
+## 基本操作
+```
+#登录
+sqlplus  xopens/iscs200    #登录数据库 用户名/密码
+sqlplus  root/root123  as sysdba  #系统管理员登录
+show user    #查看当前用户
+
+#切换用户
+conn 用户名/密码 [as sysdba]   #切换用户
+conn sys/sys as sysdba;       #切换管理员
+conn xopens/iscs              #切换普通用户
+
+#设置标格行宽和列宽(防止错乱)
+set linesize 300;    #设置每行展示字符数
+col 列名 for a[数字]  #某一行占几个字符
+
+#查看表中数据
+select *form tab;   #S查看表中数据
+Col ename for a8
+Col mgr for 9999
+Col sal for 9999
+Select * from emp;
+由于超级管理员的权限很大可以查看Scott用户下的表
+可以使用select * from [用户名].[表名] 来查看某用户下的表的数据
+
+#查看表结构
+Desc 表名
+
+```
+
