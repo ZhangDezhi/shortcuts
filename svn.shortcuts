@@ -58,7 +58,10 @@ $ svn ci -m"提交说"
 ```
 $ svn up -r 123
 $ svn revert -R dir_name    #代码回滚到修改前状态
+$ svn revert file 
 $ svn revert --depth=infinity .   # 忽略整个文件夹修改
+$ svn revert DIR --depth=infinity
+
 ```
 
 
@@ -109,6 +112,18 @@ $ svn merge 代码源路径链接
 $ svn merge -r 22:21 file_name
 $ svn merge --reintegrate 分支链接
 ```
+## 补丁使用
+
+```bash
+$ svn diff > out.patch   #生成补丁 .patch / .diff
+$ svn diff abc.cpp > out.patch 
+$ patch -p0 < out.patch  #应用补丁
+### -p0 从当前目录查找目录文件(夹)
+### -p1 从当前目录查找目的文件,不包含patch中的最上级文件(夹)
+```
+
+## 钩子 
+
 
 
 ## 删除分支
