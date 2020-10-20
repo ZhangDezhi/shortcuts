@@ -9,12 +9,23 @@ window + Shift + S     | 截图
 window + ctrl   + F4   | 删除当前虚拟桌面
 window + ctrl   + D    | 创建虚拟桌面
 window + ctrl   + 左右 | 切换桌面
+### 任务栏
+Window + b             | 定位到任务栏
+Window + t             | 切换任务栏
+
+### 扩展屏幕 
+Window + Shift +  左右  | 移动窗口到左屏/右屏
+ 
+## Key加Mouse  ⌨️️ + 🖱️ 
+Shift + 任务栏 点击          | 独新开应用程序 
+Shift + Ctrl + 点击任务栏应  | 管理员权限打开
+
 
 ## RTX
 Ctrl + Alt + L 提取消息。
 Ctrl + Alt + p  截屏
 Alt（两次） 计划搜索栏 
-
+ 
 
 ## 资源管理器
 Alt + 左右  | 前后后退
@@ -23,3 +34,6 @@ Alt + Enter | 属性
 Alt + D | 地址栏
 Ctrl + E | 搜索栏
 Alt + P | 打开预览
+Ctrl + Shift + N  | 新建文件夹
+
+
