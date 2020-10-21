@@ -1,0 +1,42 @@
+
+#docker
+
+```bash.shortcuts
+$ docker search oracle 
+$ docker volume create exeed-db  #命令创建名称为exeed-db的volume
+$ docker ps -a 查看镜像是否启动```
+
+
+```bash 
+$docker pull toneloc01/oracle-xe-11g
+$docker run toneloc01/oracle-xe-11g
+$docker ps -a
+CONTAINER ID        IMAGE                     COMMAND             CREATED              STATUS                         PORTS                NAMES
+6b005c3737f7        toneloc01/oracle-xe-11g   "/entrypoint.sh "   About a minute ago   Up About a minute              1521/tcp, 8080/tcp   eager_hertz
+2f5cb4235863        toneloc01/oracle-xe-11g   "/entrypoint.sh "   7 minutes ago        Exited (0) 3 minutes ago                            clever_pascal
+$ docker exec -it 6b005c3737f7 /bin/bash
+root@6b005c3737f7:/# su oracle
+oracle@6b005c3737f7:/$ cd /u01/app/oracle/product/11.2.0/xe/bin
+SQL>
+
+```
+
+```bash 
+$  docker tag toneloc01/oracle-xe-11g xopens
+$  docker run txopens
+```
+
+
+```bash
+#查看网络  
+$docker network ls
+$ docker run -itd --name test1 --network bridge --ip 192.168.44.233 xopens /bin/bash
+
+```
+
+#docker-machine 
+
+```bash.shortcuts
+$docker-machine ip dev   #查看ip
+
+```

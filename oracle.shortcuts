@@ -1,4 +1,42 @@
-## 基本操作
+#oracle 基本知识
+oracle 11g有两个版本 :
+1.  express （xe）   Oracle Database Express Edition 11g Release 2 
+2.  标准版  （orcl） Oracle Database 11g Release 2 (11.2.0.1.0) 
+
+安装成功后：
+到sqlplus 路径下面： 
+标准版： D:\app\Administrator\product\11.2.0\dbhome_1\BIN
+express：C:\oraclexe\app\oracle\product\11.2.0\dbhome_1\BIN
+
+
+# 基本操作
+
+```bash
+$ sqlplus / as sysdba     --以操作系统权限认证的oracle sys管理员登陆
+
+$ sqlplus /nolog  # (不登录任何数据库)
+SQL> conn as sysdba   --以操作系统权限认证的oracle sys管理员登陆
+SQL> create user test identified by test  -- (创建一个普通用户)
+SQL> grant test connect,resource,dba to test; (给该用户授予权限)
+SQL> conn test/test  用test用户登录
+
+
+$ sqlplus scott/tiger        --非管理员用户登陆
+$ sqlplus scott/tiger@orcl    --非管理员用户使用tns别名登陆
+$ sqlplus sys/password@orcl as sysdba --管理员用户使用tns别名登陆
+$ sqlplus                      #不显露密码的登陆方式
+Enter user-name：sys
+Enter password：***       
+```
+
+```bash
+$ sqlplus usr/pwd@//host:port/sid  #远程登录
+$ sqlplus system/h1w2D3B4@//10.71.105.216:1526/i2kdb
+```
+https://blog.csdn.net/qq_27731689/article/details/103289987
+
+https://blog.csdn.net/qq_27731689/article/details/103289987
+
 ```
 #登录
 sqlplus  xopens/iscs200    #登录数据库 用户名/密码
