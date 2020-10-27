@@ -1,11 +1,64 @@
 
 #docker
 
-```bash.shortcuts
-$ docker search oracle 
-$ docker volume create exeed-db  #命令创建名称为exeed-db的volume
-$ docker ps -a 查看镜像是否启动```
 
+## 镜像基本操作
+> 的镜像如果在本地中不存在，docker 就会自动从 docker 镜像仓库中下载 . 默认是从 Docker Hub 公共镜像源下载
+``` 
+$ docker search httpd       | 查找镜像
+$ docker pull httpd         | 下载镜像
+$ docker images             | 列出本地镜像 
+$ docker run httpd          | 使用镜像
+$ docker rmi httpd          | 删除镜像
+$ docker commit -m="提交信息" -a="zhangdezhi" e218edb10161 Dev/ubuntu:v2  | 提交镜像
+$ docker build -t runoob/centos:6.7 /dockerfile/    | 构建镜像(需要dockerfile文件)
+$ docker tag 860c279d2fec runoob/centos:dev  | 设置镜像标签
+```
+
+
+## 基本操作
+```bash
+$ docker run -it ubuntu /bin/bash               | 启动容器,命令行模式进入
+$ docker run -d -P training/webapp python app.py  | -P 随机端口, -p指定端口
+$ docker run -itd --name ubuntu-test ubuntu /bin/bash | 启动容器,后台运行
+
+$ docker attach 1e560fca3906             | 进入后台运行容器(容器退出,容器的停止)
+$ docker exec -it 243c32535da7 /bin/bash | 进入后台运行容器(容器退出,容器不停止)
+$ docker start  <容器 ID>    | 启动
+$ docker stop   <容器 ID>   | 停止
+$ docker rm -f 1e560fca3906 | 删除容器( 删除容器时，容器必须是停止状态，否则会报错误 )
+$ docker restart   <容器 ID> |重启
+$ docker logs  <容器 ID>    | 在container外面查看它的输出 
+$ docker attach  <容器 ID>  |连接上容器实时查看
+```
+
+## 清理操作
+```
+$ docker container prune  | 清理掉所有处于终止状态的容器
+$ docker volume create exeed-db  #命令创建名称为exeed-db的volume
+$ docker ps         | 查看运行容器
+$ docker ps -a      | 查看所有容器
+$ docker ps -n 5    | 看一下最新前5个
+$ docker ps -l      | 查询最后一次创建的容器：
+$ docker exec -it d27bd3008ad9 /bin/bash  | 进入容器(d27bd3008ad9)
+$ docker stop $(docker ps -q)             | 停用全部运行中的容器
+$ docker rm $(docker ps -aq)              | 删除全部容器
+$ docker stop $(docker ps -q) & docker rm $(docker ps -aq)  | 停止并删除容器
+
+
+$  docker export 1e560fca3906 > ubuntu.tar  | 导出容器快照
+$  cat docker/ubuntu.tar | docker import - test/ubuntu:v1  | 导入容器快照 (快照ubuntu.tar -> test/ubuntu:v1镜像)
+$ docker import http://example.com/exampleimage.tgz example/imagerepo
+```
+
+
+## dockerhub  
+
+``` 
+$ docker login   | 登录
+$ docker logout  | 登出
+
+```
 
 ```bash 
 $docker pull toneloc01/oracle-xe-11g
@@ -38,5 +91,39 @@ $ docker run -itd --name test1 --network bridge --ip 192.168.44.233 xopens /bin/
 
 ```bash.shortcuts
 $docker-machine ip dev   #查看ip
+$docker-machine start dev
+$docker-machine ls  
 
 ```
+
+
+## 示例 
+
+### 运行一个web应用
+
+```bash 
+$ docker pull training/webapp  # 载入镜像
+$ docker run -d -P training/webapp python app.py
+        -d:让容器在后台运行。
+        -P:将容器内部使用的网络端口随机映射到我们使用的主机上
+$ docker ps 
+    这时我们可以通过浏览器访问WEB应用  http://192.168.44.128:32768/
+$ docker run -d -p 5000:5000 training/webapp python app.py  #自定义映射端口
+$ docker port bf08b7f2cd89  | 查看端口映射
+$ docker port wizardly_chandrasekhar  | 查看端口映射
+$ docker logs -f bf08b7f2cd89 | 查看日志输出
+$ docker top wizardly_chandrasekhar  | 查看容器进程
+$ docker stop wizardly_chandrasekhar    | 停止并删除容器
+$ docker start wizardly_chandrasekhar  | 启动
+$ docker restart  wizardly_chandrasekhar | 重启
+$ docker rm wizardly_chandrasekhar  | 移除
+```
+
+
+
+
+
+
+wnameless/oracle-xe-11g
+
+

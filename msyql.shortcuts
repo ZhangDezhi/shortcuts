@@ -1,0 +1,74 @@
+#mysql常用命令 
+
+
+## 启动 
+
+```bash 
+    # 启动数据库
+    # rhel6 
+    $ service mysql start
+     
+    # rhel7
+     
+    # mac 
+    $ mysql.service start
+    $ mysql.service status
+    $ mysql.service stop
+    $ mysql.service restart
+     
+    # windows
+    # 进入mysql安装目录（有时候安装版本不同可能是mysql56）
+    $ net mysql start
+    $ net stop mysql56
+    $ net start mysql56
+     
+    # 登录
+    $ mysql -h 192.168.184.137 -u xopens -p 
+    > Ues xopensdb      #进入数据库xopensdb
+    > Show tables       #显示所有数据表
+
+
+
+
+```
+
+## 系统维护 
+```bash 
+# 查看3306端口（默认端口)
+$ netstat -nat | grep 3306
+ 
+# 进入mysql查看
+mysql> show global variables like 'port';
+```
+
+
+
+## 常用命令 
+
+```bash 
+> show columns from 表名;    //获取表结构
+>     create table bill      //创建表
+    (
+     id INT(11),
+     name VARCHAR(25),
+     amount FLOAT,
+     date VARCHAR(25),
+     remark VARCHAR(25)
+     );
+
+# 查看表结构
+>   describe bill;
+    desc bill;
+    # NULL 表示该列是否可以存储NULL值
+    # Key表示该列是否已编制索引
+    # Default 表示该列是否有默认值，如果有，是多少
+    # Extra: 表示可以获得德与给定定列有关定附加信息。
+    show create table bill\G; #显示创建表定sql语句。\g用于显示更加直观。
+
+
+```
+
+
+修改端口(需重启) > 编辑/etc/my.cnf文件，早期版本有可能是my.conf文件名，增加端口参数，并且设定端口，注意该端口未被使用，保存退出。 » Windows: Program Files\MySQL\MySQL Server 5.1\my.ini
+
+

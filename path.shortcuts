@@ -1,0 +1,13 @@
+#系统特殊路径
+##Windows
+```
+%AppData%\Microsoft\Windows\Start Menu\Programs\Startup            | 自启动目录 (用户)
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp       | 自启动目录 (系统)
+%AppData%\Microsoft\Windows\SendTo                                 | 发送到目录
+```
+##Linux
+
+
+##macOS 
+
+

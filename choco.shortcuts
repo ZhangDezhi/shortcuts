@@ -1,0 +1,33 @@
+## 安装
+> powershell设置为允许执行远程脚本
+
+```bash
+Running as administrator来打开PowerShell
+命令行里输入Set-ExecutionPolicy RemoteSigned
+```
+
+```bash
+
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+```
+
+```bash 
+Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+```
+
+## 网站 
+
+官网:   https://chocolatey.org/
+包列表: https://chocolatey.org/packages
+
+
+## 安装软件
+choco install jdk8
+choco install jdk9
+choco install googlechrome
+choco install intellijidea-community
+choco install git 
+choco install winrar
+choco install nodejs.install
+
