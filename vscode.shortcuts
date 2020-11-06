@@ -1,11 +1,13 @@
-#1. 按下ctrl+K，再按下ctrl+S，查看快捷键列表
-#### 代码折叠
+#vscode
 
-Ctrl + M + O: 折叠所有方法
-Ctrl + M + M: 折叠或者展开当前方法
-Ctrl + M + L: 展开所有方法
+## 查看快捷键列表
 
+Ctrl + k , Ctrs + s  | 查看快捷键列表
 
+## 代码折叠
+Ctrl + k , Ctrl + 0  (零)  | 折叠所有
+ctrl +k,  ctrl+J  | 打开所有
+ctrl+k, ctrl+f;   | 格式化代码
 
 #### 编辑
 
@@ -19,7 +21,8 @@ Ctrl + Tab  : 快捷切换打开的窗口和文件
 Ctrl+K, Ctrl + O  : 源文件和实现文件快速切换
 tab:  选中代码右移动
 ⇧  + tab : 选中代码左移动
-
+alt + 左  |  后退
+alt + 右  |  前进
 #### 代码注释
 
 Ctrl + K + C : 注释
@@ -62,3 +65,8 @@ Ctrl + 鼠标滚动 向上调大 向下调小
 1. 按住alt，用鼠标左键点击
 2、按住Ctrl + Alt，再按键盘上向上或者向下的键，可以使一列上出现多个光标。
 
+
+## 插件: Bookmarks
+ctrl + alt + k 创建/删除书签
+ctrl + alt + j  跳转上一个
+ctrl + alt + l  跳转下一个

@@ -118,4 +118,4 @@ $ cp ` find ~/lib/ -maxdepth 1 -newermt $(date +%Y-%m-%d)` ~/Desktop/
 
 
 
-
+## ftp 

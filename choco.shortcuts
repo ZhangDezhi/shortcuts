@@ -31,3 +31,7 @@ choco install git
 choco install winrar
 choco install nodejs.install
 
+choco install adobereader
+choco install vscode
+choco install notepadplusplus
+choco install typora
