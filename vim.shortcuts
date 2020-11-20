@@ -1,6 +1,6 @@
-# 快捷键操作
+# 系统快捷操作
 
-##快速查找选中词 （系统）
+## 快捷键（系统）
 
 ```vim 
  *             | 向下查找并高亮显示
@@ -11,7 +11,7 @@
  =             | 框选脚本 快速格式化
 ```
 
-##快速查找选中词 （自定义）
+## 快捷键（自定义）
 
 ```vim 
 jj  |  进入normal模式
@@ -26,9 +26,24 @@ jj  |  进入normal模式
 <C-d>   |  <Del>
 
 ```
+## 功能 - 导航 
+ ctrl+f,ctrl+b 向下翻页，向上翻页
+ ctrl+d,ctrl+u 向下半翻页，向上半翻页
+ $ 移动行尾
+ 0 移动行首
+ w 移动下一个词
+ b 移动到上一个词
+ gg 跳到文档的开始处
+ G  跳到文档的末尾
+ %  跳到匹配的括号处（\"{ }\"\"[]\"\"()\")
+ ctrl+i,tab 跳到下一个jump point
+ ctrl+o 跳到上一个jump point
 
+ 23gg,23G,:23 跳到第23行
+ ctrl+i,tab 跳到下一个跳点(Jump Point)
+ ctrl+o 跳到上一个跳点
 
-## 快速设置
+## 快速设置 设置编码
 
 ```vim 
 :set encoding              | 查看终端显示编码（默认是根据你的locale选择.）
@@ -38,20 +53,40 @@ jj  |  进入normal模式
 :set termencoding          | 终端使用的编码
 ```
 
-## 常用操作
->基于 DOS/Windows 的文本文件在每一行末尾有一个 CR（回车）和 LF（换行）
-> UNIX 文本只有一个换行
-> 如果win下的文档上传到linux，每行的结尾都会出现一个^M，(^M是ctrl+v,ctrl+m) 
-> 如果是单个文档的话，可以用vi打开，执行 :%s/^M//g　来去掉^M
+## 功能 - 分屏
+
+```vim
+: vim -O3 file1 file3 file3 | 垂直分割3分屏
+: vim -o2 file1 file2       | 水瓶分割2分屏
+: v(split) file             | 水平分屏打开文件
+: s(plit) file              | 垂直分屏打开文件
+: new/vnew 创建一个新的窗口
+: sf {filename} 在新窗口中打开filename
+: close  关闭当前窗口
+: only  关闭除当前窗口外所有窗口
+: ball   平铺所有buffer
 ```
-参考: https://www.zhihu.com/question/22130727
-:%s/\r//gc  | 去除^M
+C-W s       | 水瓶分屏打开文件
+C-W v       | 垂直分屏打开文件
+C-w c(lose) | 关闭分屏
+C-w w       | 切换分屏
+C-w h       | 左 移动光标
+C-w j       | 下 移动光标
+C-w k       | 上 移动光标
+C-w l       | 右 移动光标
+C-w t       | 顶部 
+C-w b       | 底部
+
+C-w <       | 左移动大小
+C-w >       | 右移动大小
+C-w +       | 上移动大小
+C-w -       | 下移动大小
+C-w =       | 恢复均等
 
 
-```
 
 
-## 折叠
+## 功能 - 折叠
 > 每种折叠方法不兼容
 +----------+--------------------+
 | 折叠方法 | 描述               |
@@ -95,8 +130,24 @@ jj  |  进入normal模式
 ```
 
 
-#  插件快捷键 
 
+
+
+## 常用操作- 去除^M
+>基于 DOS/Windows 的文本文件在每一行末尾有一个 CR（回车）和 LF（换行）
+> UNIX 文本只有一个换行
+> 如果win下的文档上传到linux，每行的结尾都会出现一个^M，(^M是ctrl+v,ctrl+m) 
+> 如果是单个文档的话，可以用vi打开，执行 :%s/^M//g　来去掉^M
+```
+参考: https://www.zhihu.com/question/22130727
+:%s/\r//gc  | 去除^M
+
+
+```
+
+
+
+# 插件快捷操作
  
 ## 常用快捷键自定义
 
@@ -181,6 +232,13 @@ mx 清除所有buffer 内的书签
 :BookmarkLoad <file > : 从文件读取
 ```
 
+## 插件-Graphviz
+:Graphviz            ; 打开编译后文件(默认pdf)
+:Graphviz png        ; 打开编译后文件(png)
+:GraphvizCompile     ; 编译(默认pdf)
+:GraphvizComplie png ; 编译成(png)
+:Graphviz!           ; 编译并打开
+
 ## 导航
 
 
@@ -190,27 +248,12 @@ vi(i( 可以选择上两层括号的内容
 vi(i(i(可以选择上面三层括号的内容
 
 
-# 导航 
- ctrl+f,ctrl+b 向下翻页，向上翻页
- ctrl+d,ctrl+u 向下半翻页，向上半翻页
- $ 移动行尾
- 0 移动行首
- w 移动下一个词
- b 移动到上一个词
- gg 跳到文档的开始处
- G  跳到文档的末尾
- %  跳到匹配的括号处（\"{ }\"\"[]\"\"()\")
- ctrl+i,tab 跳到下一个jump point
- ctrl+o 跳到上一个jump point
-
- 23gg,23G,:23 跳到第23行
- ctrl+i,tab 跳到下一个跳点(Jump Point)
- ctrl+o 跳到上一个跳点
 
 # 文件操作
 :e  重载文件
 :e!  强制重载
 # 查找替换:
+
  # 从光标向后查找整个关键词
  * 从光标向前查找整个关键词
  g# 从光标向后查找关键词
@@ -257,20 +300,6 @@ vi(i(i(可以选择上面三层括号的内容
  ctrl+r  重做
  .  重复上一次修改
  
-# 划分窗格:
- :split/vsplit 分隔一个窗口
- :new/vnew 创建一个新的窗口
- :sf {filename} 在新窗口中打开filename
- :close  关闭当前窗口
- :only  关闭除当前窗口外所有窗口
- :ctrl-w h      到左面的窗口
- :ctrl-w j      到下面的窗口
- :ctrl-w k      到上面的窗口
- :ctrl-w l      到右面的窗口
- :ctrl-w t      到顶部的窗口
- :ctrl-w b      到底部的窗口
-
-:ball   平铺所有buffer
 
 ## 比较文档
 
@@ -482,10 +511,4 @@ q：结束宏的记录。
 gd：到达光标所在处函数或者变量的定义处。
 K：在Man里面查找光标当前所在处的词。
 
-# 插件-Graphviz
-:Graphviz            ; 打开编译后文件(默认pdf)
-:Graphviz png        ; 打开编译后文件(png)
-:GraphvizCompile     ; 编译(默认pdf)
-:GraphvizComplie png ; 编译成(png)
-:Graphviz!           ; 编译并打开
 

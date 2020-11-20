@@ -9,6 +9,21 @@ Ctrl + k , Ctrl + 0  (零)  | 折叠所有
 ctrl +k,  ctrl+J  | 打开所有
 ctrl+k, ctrl+f;   | 格式化代码
 
+
+
+## 插件
+### Clang-format
+ Alt + shift + F   | 格式化代码 
+Alt + shift + I    | 选中部份批量编辑(最后)
+
+
+
+
+
+
+
+
+
 #### 编辑
 
 Ctrl + U  转换小写
