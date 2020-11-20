@@ -35,3 +35,5 @@ choco install adobereader
 choco install vscode
 choco install notepadplusplus
 choco install typora
+
+choco install totalcommander --version=9.22.1

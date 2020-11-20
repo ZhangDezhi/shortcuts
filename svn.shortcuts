@@ -100,6 +100,9 @@ $ svn export <url> directoryname
 
 
 ## 创建分支
+>  trunk分支 (主分支)
+>  branch分支 (开发)
+>  tag分支(归档分支) 不允许修改,用于回滚
 
 ```
 $ svn cp -m"操作说明"  源分支链接 新分支链接路径
