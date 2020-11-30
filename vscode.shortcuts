@@ -1,13 +1,14 @@
 #vscode
 
-## 查看快捷键列表
+## 快接操作
+   Ctrl + k , Ctrs + s  | 查看快捷键列表
+   Ctrl + k , Ctrl + T  | 切换主题
+   Ctrl + k , Ctrl + 0  (零)   | 折叠所有
+   Ctrl + k , Ctrl + J         | 打开所有
+   Ctrl + k , Ctrl + f         | 格式化代码
 
-Ctrl + k , Ctrs + s  | 查看快捷键列表
 
-## 代码折叠
-Ctrl + k , Ctrl + 0  (零)  | 折叠所有
-ctrl +k,  ctrl+J  | 打开所有
-ctrl+k, ctrl+f;   | 格式化代码
+
 
 
 

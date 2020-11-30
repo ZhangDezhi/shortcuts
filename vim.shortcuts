@@ -13,19 +13,26 @@
 
 ## 快捷键（自定义）
 
-```vim 
-jj  |  进入normal模式
-<C-b>n  | 下一个缓冲区
-<C-b>p  | 上一个缓存区
-<C-a>   |  <Home>
-<C-e>   |  <End>
-<C-p>   |  <Up>
-<C-n>   |  <Dn>
-<C-b>   |  <Lf>
-<C-f>   |  <Rt>
-<C-d>   |  <Del>
+{{{
+  
 
+
+  
+}}}
+
+```vim 
+  jj  |  进入normal模式
+  <C-b>n  | 下一个缓冲区
+  <C-b>p  | 上一个缓存区
+  <C-a>   |  <Home>
+  <C-e>   |  <End>
+  <C-p>   |  <Up>
+  <C-n>   |  <Dn>
+  <C-b>   |  <Lf>
+  <C-f>   |  <Rt>
+  <C-d>   |  <Del>
 ```
+
 ## 功能 - 导航 
  ctrl+f,ctrl+b 向下翻页，向上翻页
  ctrl+d,ctrl+u 向下半翻页，向上半翻页
@@ -46,11 +53,11 @@ jj  |  进入normal模式
 ## 快速设置 设置编码
 
 ```vim 
-:set encoding              | 查看终端显示编码（默认是根据你的locale选择.）
-:set encoding=UTF-8        | 设置终端显示编码
-:set fileencoding=UTF-8    | 设置当前编辑文件字符编码
-:set fileencodings         | 字符编码列表
-:set termencoding          | 终端使用的编码
+  :set encoding              | 查看终端显示编码（默认是根据你的locale选择.）
+  :set encoding=UTF-8        | 设置终端显示编码
+  :set fileencoding=UTF-8    | 设置当前编辑文件字符编码
+  :set fileencodings         | 字符编码列表
+  :set termencoding          | 终端使用的编码
 ```
 
 ## 功能 - 分屏
@@ -220,32 +227,33 @@ C-w =       | 恢复均等
 
 
 ## vim-bookmarks
+
 ```vim 
-mm 添加/删除书签
-mi 添加编辑书签mm
-mn 跳转到当前buffer的下一个书签
-mp 跳转到上一个书签
-ma 在quickfix 窗口列出所有书签
-mc 清除当前buffer所有书签
-mx 清除所有buffer 内的书签
-:BookmarkSave < file>  : 保存到文件
-:BookmarkLoad <file > : 从文件读取
+  mm 添加/删除书签
+  mi 添加编辑书签mm
+  mn 跳转到当前buffer的下一个书签
+  mp 跳转到上一个书签
+  ma 在quickfix 窗口列出所有书签
+  mc 清除当前buffer所有书签
+  mx 清除所有buffer 内的书签
+  :BookmarkSave < file>  : 保存到文件
+  :BookmarkLoad <file > : 从文件读取
 ```
 
 ## 插件-Graphviz
-:Graphviz            ; 打开编译后文件(默认pdf)
-:Graphviz png        ; 打开编译后文件(png)
-:GraphvizCompile     ; 编译(默认pdf)
-:GraphvizComplie png ; 编译成(png)
-:Graphviz!           ; 编译并打开
+  :Graphviz            ; 打开编译后文件(默认pdf)
+  :Graphviz png        ; 打开编译后文件(png)
+  :GraphvizCompile     ; 编译(默认pdf)
+  :GraphvizComplie png ; 编译成(png)
+  :Graphviz!           ; 编译并打开
 
 ## 导航
 
 
-选中上层括号
-vi(，va(等text object可以选中包围括号内的内容
-vi(i( 可以选择上两层括号的内容
-vi(i(i(可以选择上面三层括号的内容
+  选中上层括号
+  vi(，va(等text object可以选中包围括号内的内容
+  vi(i( 可以选择上两层括号的内容
+  vi(i(i(可以选择上面三层括号的内容
 
 
 

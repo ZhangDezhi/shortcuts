@@ -28,7 +28,8 @@ $ svn list 链接路径   # 查看路径下目录
 ## 导出(不包含.svn)
 
 ```
-$ svn export -r 123 http://127.0.0.1/svn/project
+$ svn export -r 123 http://127.0.0.1/svn/project  目标路径/
+#-r  : 指定版本号,不指定的话,默认当前最新版本
 $ svn export -r 123 http://127.0.0.1/svn/project ~/Desktop --username Zhangdezhi
 ```
 
