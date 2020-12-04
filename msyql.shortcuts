@@ -1,36 +1,59 @@
-#mysql常用命令 
+# mysql常用命令 
 
 
-## 启动 
+## 数据库服务启动/关闭
 
-```bash 
-    # 启动数据库
-    # rhel6 
-    $ service mysql start
-     
-    # rhel7
-     
-    # mac 
-    $ mysql.service start
-    $ mysql.service status
-    $ mysql.service stop
-    $ mysql.service restart
-     
-    # windows
-    # 进入mysql安装目录（有时候安装版本不同可能是mysql56）
-    $ net mysql start
-    $ net stop mysql56
-    $ net start mysql56
-     
-    # 登录
-    $ mysql -h 192.168.184.137 -u xopens -p 
-    > Ues xopensdb      #进入数据库xopensdb
-    > Show tables       #显示所有数据表
+```bash
 
+$ service mysql start        # rhel6  启动数据库
+
+$ systemctl start mariadb    #rhel7 启动MariaDB
+$ systemctl enable mariadb   # 设置开机启动
+$ systemctl status mariadb   # 查看状态
+$ systemctl stop mariadb     # 停止MariaDB
+$ systemctl restart mariadb  # 重启MariaDB
+
+$ mysql.service start        #mac 启动数据库
+$ mysql.service status       # 查看数据库状态
+$ mysql.service stop         # 停止数据库
+$ mysql.service restart      # 停止数据库
+
+
+$ net mysql start        # windows
+$ net stop mysql56       # windows  # 进入mysql安装目录（有时候安装版本不同可能是mysql56）
+$ net start mysql56      # windows
 
 
 
 ```
+
+
+## 登录数据库
+
+```
+# 登录
+$ mysql -h 192.168.184.137 -uxopens -piscs200
+> Ues xopensdb      #进入数据库xopensdb
+> Show tables       #显示所有数据表
+
+```
+
+## 常用操作
+> SQL 语句都是不区分大小写的
+
+```sql
+CREATE DATABASE mysql_shiyan;                                   -- 创建数据库
+show databases;                                                 -- 查看数据库
+use mysql_shiyan;                                               -- 连接数据库
+CREATE TABLE employee (id int(10),name char(20),phone int(12)); -- 新建 数据表
+show tables;                                                    -- 查看表
+INSERT INTO employee(id,name,phone) VALUES(01,'Tom',110110110); -- 插入数据
+INSERT INTO employee VALUES(02,'Jack',119119119);
+INSERT INTO employee(id,name) VALUES(03,'Rose');
+```
+
+
+
 
 ## 系统维护 
 ```bash 
@@ -72,3 +95,6 @@ mysql> show global variables like 'port';
 修改端口(需重启) > 编辑/etc/my.cnf文件，早期版本有可能是my.conf文件名，增加端口参数，并且设定端口，注意该端口未被使用，保存退出。 » Windows: Program Files\MySQL\MySQL Server 5.1\my.ini
 
 
+
+
+mysql通过-D参数指定连接到test数据库

@@ -1,15 +1,16 @@
 
 #docker
 ## 镜像基本操作
-``` 
-$ docker search httpd       # 查找镜像
-$ docker pull httpd         # 下载镜像
-$ docker images             # 列出本地镜像 
-$ docker run httpd          # 使用镜像
-$ docker rmi httpd          # 删除镜像
-$ docker commit -m="提交信息" -a="zhangdezhi" e218edb10161 Dev/ubuntu:v2  | 提交镜像
-$ docker build -t runoob/centos:6.7 /dockerfile/    | 构建镜像(需要dockerfile文件)
-$ docker tag 860c279d2fec runoob/centos:dev  | 设置镜像标签
+
+```bash
+    $ docker search httpd       # 查找镜像
+    $ docker pull httpd         # 下载镜像
+    $ docker images             # 列出本地镜像 
+    $ docker run httpd          # 使用镜像
+    $ docker rmi httpd          # 删除镜像
+    $ docker commit -m="提交信息" -a="zhangdezhi" e218edb10161 Dev/ubuntu:v2  | 提交镜像
+    $ docker build -t runoob/centos:6.7 /dockerfile/    | 构建镜像(需要dockerfile文件)
+    $ docker tag 860c279d2fec runoob/centos:dev  | 设置镜像标签
 ```
 
 ## dockerhub  
