@@ -259,10 +259,22 @@ $ git ls-files --others --exclude-standard -z |\xargs -0 tar rvf ./backup-untrac
 ## 配置 
 
 ```
+$ git config --global -l  #列出配置
 
 $ git config --global help.autocorrect 1 #开启自动更正
 $ git config --global https.proxy https://git-proxy-server:443   # git代理加速，也可以是其它端口啊（不仅限定用443）
 $ git config credential.helper store  #设置保存用户名/密码 (明文!!!)  可在文件查看 ~/.git-credentials
+
+#别名
+$ git config --global alias.p 'push'
+$ git config --global alias.st 'status -sb'    #简化查看状态
+$ git config --global alias.ll 'log --oneline'
+$ git config --global alias.last 'log -1 HEAD --stat'  #查看最后一次提交
+$ git config --global alias.cm 'commit -m'   #简化提交
+$ git config --global alias.rv 'remote -v'  #查看远程仓库
+$ git config --global alias.d 'diff'
+$ git config --global alias.dv 'difftool -t vimdiff -y'  #使用vimdiff查看差异
+
 
 ```
 # 常用操作流程
