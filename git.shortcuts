@@ -1,15 +1,18 @@
 # git快捷命令查询
+
+基本描述
 > 
-`master`：默认开发分支
+`master`：默认开发分支(main)
 `origin`：默认远程版本库
 `Head`：默认开发分支
 `Head^`：Head的父提交
 
+
 ## 创建版本库
 
 ```bash
-$ git clone <url>  #克隆远程版本库
-$ git init  #初始化本地版本库
+$ git clone <url> # 克隆远程版本库
+$ git init        # 初始化本地版本库
 ```
 
 
@@ -25,6 +28,18 @@ $ git rm <file>                  # 删除文件
 $ git rm --cached <file>         # 停止跟踪文件但不删除
 $ git commit -m "commit message" # 提交所有更新过的文件
 $ git commit --amend             # 修改最后一次提交
+#高级技巧 
+$ git add -i      #交互命令模式
+
+           staged     unstaged path
+  1:    unchanged        +1/-1 masVersion/mainwindow.ui
+  2:    unchanged       +41/-2 masVersion/setwin.ui
+
+*** Commands ***
+  1: status       2: update       3: revert       4: add untracked
+  5: patch        6: diff         7: quit         8: help
+What now> 6
+
 ```
 
 
@@ -43,6 +58,7 @@ $ git stash pop                  # 恢复并删除stash内容
 
 ```
 $ git log                                          # 查看提交历史，确定回退版本
+$ git log fileName
 $ git log -1                                       # 显示最近的1条log
 $ git reflog                                       # 查看命令历史，确定未来版本
 $ git log -p <file>                                # 查看指定文件的提交历史
@@ -54,24 +70,28 @@ $ git log --pretty=format:"%h %cd" -5              # 查看修改时间
 ```
 
 
-## 版本回退
+## 撤销与版本回退 
 
 ```
-$ git log fileName
-$ git checkout <commit-id>  fineName
-```
+$ git unstage                # 撤销add到暂存区的修改
+$ git reset HEAD             # 撤销add到暂存区的修改
 
+$ git reset --hard HEAD      # 撤销暂存区(未提交)
+$ git reset --hard <commit>  # 回到指定版本,不保留修改
 
-## 撤销
+$ git reset --soft HEAD~1    # 提交内容撤回到暂存区
+$ git reset --soft <commit>  # 回到指定版本,保留修改
 
-```
-$ git reset --hard HEAD      # 撤销工作目录中所有的未提交
-$ git reset --hard commit_id # 回到指定版本,不保留修改
-$ git reset --soft commit_id # 回到指定版本,保留修改
 $ git checkout HEAD <file>   # 撤销指定的未提交文件的修改内容
 $ git checkout --file        # 直接撤销指定文件的修改内容
-$ git revert <commit>        # 撤销指定的提交
+$ git revert <commit>        # 反向修改并提交
+
+$ git reflog                 # 查看所有操作记录
+$ git rebase -i              # edit 修改,drop丢弃,squash合并压缩
+
+$ git checkout <commit-id>  fineName
 $ git checkout .             # 本地所有修改的,没有提交的,返回到原来的状态
+
 ```
 ## 清理
 > 再clean前,先使用 -n 参数查看会删除哪些文件 
@@ -94,27 +114,46 @@ $ git clean -X               # 仅删除.gitignore里标记的文件
 ## 分支与标签
 
 ```
-$ git branch  #显示所有本地分支
-$ git checkout <branch/tag>  #切换到指定的分支或标签
-$ git branch <new-branch>  #创建新分支
-$ git branch -b <new-branch>  #创建并切换到新分支
-$ git branch -d <branch>  #删除本地分支
-$ git branch -D <branch>  #强行删除本地分支
-$ git tag  #列出所有本地标签
-$ git tag <tagname>  #基于最新提交创建标签
-$ git tag -a <tagname> -m "tag message"  #指定标签信息
-$ git tag -d <tagname>  #删除标签
-$ git branch -m old new
+$ git branch                            # 显示所有本地分支
+$ git checkout <branch/tag>             # 切换到指定的分支或标签
+$ git branch <new-branch>               # 创建新分支
+$ git branch -b <new-branch>            # 创建并切换到新分支
+$ git branch -d <branch>                # 删除本地分支
+$ git branch -D <branch>                # 强行删除本地分支
+$ git push origin --delete <branch>  #删除远端分支
+
+$ git tag                               # 列出所有本地标签
+$ git tag <tagname>                     # 基于最新提交创建标签
+$ git tag -a <tagname> -m "tag message" # 指定标签信息
+$ git tag -d <tagname>                  # 删除标签
+$ git branch -m old new   #分支重命名
+$ git branch -rename old  new
+
+###高级 
+$ git show main:README.md  #查看另一个分支内容
+
+
+
 ```
 
 ## 合并与衍合
 
 ```
-$ git merge <branch>  #合并指定分支到当前分支
-$ git merge --no-ff -m "merge message" <branch>  #使用普通模式合并指定分支到当前分支，合并后有分支合并历史记录
-$ git rebase <branch>  #衍合指定分支到当前分支
+$ git merge <branch>                            # 合并指定分支到当前分支
+$ git merge --no-ff -m "merge message" <branch> # 使用普通模式合并指定分支到当前分支，合并后有分支合并历史记录
+$ git rebase <branch 或者 commit>               # 将指定分支在当前分支重演一遍并提交
+$ git rebase -i <branch 或者 commit>            # [交互方式] 将指定分支在当前分支重演一遍并提交
+$ git pull <remote> <branch> --rebase           # 拉取远程代码使用rebase方式代替merge
+```
+## 子模块 
+#
 ```
 
+$ git clone --recurse-submodules <url>  # 全新克隆时直接将子仓库也全部克隆来
+
+$ git submodule init  #若已有项目代码仓库，但其中尚未将子仓取下来时，用下面的
+$ git submodule update
+```
 
 
 ## 远程操作
@@ -145,10 +184,23 @@ $ git remote rename 旧名称  新名称
 $ git diff d20f63f 7f79753 --name-only | xargs tar -czvf ../update.tar.gz   #导出两个版本的差异文件
 $ git diff d20f63f 7f79753 --name-only | xargs zip update.zip
 $2020/07/03 git diff d20f63f HEAD --name-only | xargs zip update.zip   #导出到最新版本的文件
+
+#archive命令就是将纯代码打包（默认tar，可以另指定zip等）
+
+$ git archive master | tar -x -C /somewhere/else                     # 等于将代码导出到另一个地方
+$ git archive master | bzip2 > source-tree.tar.bz2                   # 代码打包后再压缩下
+$ git archive --format=zip --output /full/path/to/zipfile.zip master # 以zip压缩包导出
+
+#高级技巧
+$ git clone --branch tag-v0.1 --depth 1 git@git.home.nas:gitrepo/hellogit.git  #克隆tag/branch时使用浅克隆
+         说明: --depth 1 只取回一次提交记录，同时也生效--single-branch
+$ git fetch --unshallow origin master                                #将浅克隆的shallow repo转换为完整repo仓库
+
 ```
 
 
 ## 补丁
+
 ```bash
      #创建补丁
 $ git format-patch -M master # 当前分支所有超前master的提交
@@ -162,20 +214,6 @@ $ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加�
 
 ```
 
-
-
-
-
-## 去除已经添加到版本库的文件 
-```bash 
-$ git rm -r -n --cached  文件/目录  #(不会删除,只会列出被删除的列表) 
-$ git rm -r --cached   文件/目录
-#-r 表示递归 
-#-n 表示列出 不删除 
-#然后添加到.gitignore 中  
-#最后提交
-
-```
 
 
 ## git-svn
@@ -195,6 +233,53 @@ $ git rm -r --cached   文件/目录
  $ git svn fetch --ignore-paths path/up/to/filename
 
 ```
+
+## 统计与查找
+
+```
+
+$ git rev-list --count branch-name                # 统计分支提交次数
+$ git rev-list --all | xargs git grep -F 'string' # 在git中搜索
+$ git log --author="Jingsai Lu" --since="2019-11-01" | grep -e 'commit [a-zA-Z0-9]*' | wc -l
+$ git log --author="Jingsai Lu" --since="2019-11-01" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' 
+
+```
+
+## 优化  
+```
+$ git gc --prune=now --aggressive   # 垃圾收集 清理仓库中无法访问或者孤立对象
+$ git ls-files --others --exclude-standard -z |\xargs -0 tar rvf ./backup-untracked.zip #备份未被追踪对象
+
+```
+
+
+
+
+
+## 配置 
+
+```
+
+$ git config --global help.autocorrect 1 #开启自动更正
+$ git config --global https.proxy https://git-proxy-server:443   # git代理加速，也可以是其它端口啊（不仅限定用443）
+$ git config credential.helper store  #设置保存用户名/密码 (明文!!!)  可在文件查看 ~/.git-credentials
+
+```
+# 常用操作流程
+
+## 去除已经添加到版本库的文件 
+```bash 
+$ git rm -r -n --cached  文件/目录  #(不会删除,只会列出被删除的列表) 
+$ git rm -r --cached   文件/目录
+#-r 表示递归 
+#-n 表示列出 不删除 
+#然后添加到.gitignore 中  
+#最后提交
+
+```
+
+
+
 
 ### git-svn error及处理办法
 
