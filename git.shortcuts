@@ -328,3 +328,17 @@ $ rm -r .git/svn
 $ git svn fetch
 
 ```
+
+
+## git第三方工具 
+#
+图形客户端:
+souretree  | 
+gitup      | 仅仅macos 
+fork       | win & macos
+
+多仓库管理:
+gitup | 批量更新工具 
+repo  | 批量更新脚本 (android项目在使用)
+
+
