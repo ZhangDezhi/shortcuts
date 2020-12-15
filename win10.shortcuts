@@ -48,6 +48,7 @@ choco upgrade --yes all       #一键升级所有
 choco info tim 
 
 ----------------------------------------
+choco install imageglass --version=7.5.1.1   #图片查看工具
 choco install listary
 choco install wox
 choco install treesizefree 

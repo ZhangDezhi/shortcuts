@@ -20,6 +20,7 @@ $ git init        # 初始化本地版本库
 
 ``` bash
 $ git status                     # 查看状态
+$ git status -uno     #只查看已追踪的文件
 $ git diff                       # 查看变更内容
 $ git add .                      # 跟踪所有改动过的文件
 $ git add <file>                 # 跟踪指定的文件
@@ -28,7 +29,9 @@ $ git rm <file>                  # 删除文件
 $ git rm --cached <file>         # 停止跟踪文件但不删除
 $ git commit -m "commit message" # 提交所有更新过的文件
 $ git commit --amend             # 修改最后一次提交
+
 #高级技巧 
+$ git ls-files --modified | xargs git add   #只提交修改的文件
 $ git add -i      #交互命令模式
 
            staged     unstaged path
@@ -264,6 +267,12 @@ $ git config --global -l  #列出配置
 $ git config --global help.autocorrect 1 #开启自动更正
 $ git config --global https.proxy https://git-proxy-server:443   # git代理加速，也可以是其它端口啊（不仅限定用443）
 $ git config credential.helper store  #设置保存用户名/密码 (明文!!!)  可在文件查看 ~/.git-credentials
+
+
+# 中文编码
+$ git config --global i18n.commitencoding utf-8       # 设置提交日志使用utf-8
+$ git config --global i18n.logoutputencoding utf-8    # 设置输出日志时使用utf-8
+$ git config --global core.quotepath false            # 不用双引号引用路径
 
 #别名
 $ git config --global alias.p 'push'

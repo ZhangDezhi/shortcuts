@@ -1,6 +1,7 @@
 # 系统快捷操作
 
 ## 快捷键（系统）
+{{{
 
 ```vim 
  *             | 向下查找并高亮显示
@@ -10,15 +11,11 @@
  vip           | 快速选择段落
  =             | 框选脚本 快速格式化
 ```
+}}}
+
 
 ## 快捷键（自定义）
-
 {{{
-  
-
-
-  
-}}}
 
 ```vim 
   jj  |  进入normal模式
@@ -32,8 +29,15 @@
   <C-f>   |  <Rt>
   <C-d>   |  <Del>
 ```
+  
+}}}
+
+
 
 ## 功能 - 导航 
+{{{
+
+```
  ctrl+f,ctrl+b 向下翻页，向上翻页
  ctrl+d,ctrl+u 向下半翻页，向上半翻页
  $ 移动行尾
@@ -49,8 +53,13 @@
  23gg,23G,:23 跳到第23行
  ctrl+i,tab 跳到下一个跳点(Jump Point)
  ctrl+o 跳到上一个跳点
+ ```
+}}}
 
-## 快速设置 设置编码
+
+
+##  快速设置 设置编码
+{{{
 
 ```vim 
   :set encoding              | 查看终端显示编码（默认是根据你的locale选择.）
@@ -59,8 +68,11 @@
   :set fileencodings         | 字符编码列表
   :set termencoding          | 终端使用的编码
 ```
+}}}
+
 
 ## 功能 - 分屏
+{{{
 
 ```vim
 : vim -O3 file1 file3 file3 | 垂直分割3分屏
@@ -91,9 +103,13 @@ C-w -       | 下移动大小
 C-w =       | 恢复均等
 
 
+}}}
+
 
 
 ## 功能 - 折叠
+{{{
+
 > 每种折叠方法不兼容
 +----------+--------------------+
 | 折叠方法 | 描述               |
@@ -136,11 +152,15 @@ C-w =       | 恢复均等
 :loadview         | 载入当前折叠
 ```
 
-
+  
+}}}
 
 
 
 ## 常用操作- 去除^M
+{{{
+
+
 >基于 DOS/Windows 的文本文件在每一行末尾有一个 CR（回车）和 LF（换行）
 > UNIX 文本只有一个换行
 > 如果win下的文档上传到linux，每行的结尾都会出现一个^M，(^M是ctrl+v,ctrl+m) 
@@ -152,6 +172,7 @@ C-w =       | 恢复均等
 
 ```
 
+}}}
 
 
 # 插件快捷操作
@@ -171,6 +192,9 @@ C-w =       | 恢复均等
 ```
 
 ## 自动输入括号
+
+{{{
+
 
 ```vim 
 
@@ -199,6 +223,38 @@ C-w =       | 恢复均等
  *"hello"              | ysWFprint<cr>     | print( "hello" )         | <cr> 表示回车
  *"hello"              | ysW<C-f>print<cr> | (print "hello")          | <cr> 表示回车<C-F> 表示ctrl+f
 ```
+ }}}
+
+
+
+
+==A
+:A 头文件／源文件切换
+:AS 分割窗后并切换头/源文件(切割为上下两个窗口)
+:AV 垂直切割窗口后切换头/源文件(切割为左右两个窗口)
+:AT 新建Vim标签式窗口后切换
+:AN 在多个匹配文件间循环切换
+将光标所在处单词作为文件名打开
+:IH 切换至光标所在文件
+:IHS 分割窗口后切换至光标所在文件(指将光标所在处单词作为文件名打开)
+:IHV 垂直分割窗口后切换
+:IHT 新建标签式窗口后切换
+:IHN 在多个匹配文件间循环切换
+快捷键操作
+<Leader>ih 切换至光标所在文件*
+<Leader>is 切换至光标所在处(单词所指)文件的配对文件(如光标所在处为foo.h，则切换至foo.c/foo.cpp...)
+<Leader>ihn 在多个匹配文件间循环切换
+*<Leader>指Vim所定义的映射(map)前缀，在Vim配置文件中可过变量'mapleader'进行设置，缺省为'\'。
+
+
+== hledger
+
+<leader><leader>lo 打开默认记账本
+<leader><leader>ll 账户记录对齐
+<leader><leader>la 分屏中列出所有账户名称,可yy复制
+<leader><leader>lt 分屏中打开所有以模板开头的tag
+<leader><leader>lr 提示输入参数
+
 
 
 ## minimap
@@ -211,22 +267,32 @@ C-w =       | 恢复均等
 ```
 
 ## Tabularize
+{{{
+
+
 ```vim
 ;a  |开启对齐
 ;a= | 等号对齐
 ```
 
+}}}
+
 
 
 
 ## DrawIt
+{{{
+
+
 ```vim
   ;di | start DrawIt 
   ;ds | stop  DrawIt 
 ```
+}}}
 
 
 ## vim-bookmarks
+{{{
 
 ```vim 
   mm 添加/删除书签
@@ -239,21 +305,76 @@ C-w =       | 恢复均等
   :BookmarkSave < file>  : 保存到文件
   :BookmarkLoad <file > : 从文件读取
 ```
+  
+}}}
 
 ## 插件-Graphviz
+{{{
+
   :Graphviz            ; 打开编译后文件(默认pdf)
   :Graphviz png        ; 打开编译后文件(png)
   :GraphvizCompile     ; 编译(默认pdf)
   :GraphvizComplie png ; 编译成(png)
   :Graphviz!           ; 编译并打开
+  
+}}}
+
+
 
 ## 导航
 
+{{{
 
   选中上层括号
   vi(，va(等text object可以选中包围括号内的内容
   vi(i( 可以选择上两层括号的内容
   vi(i(i(可以选择上面三层括号的内容
+
+  
+}}}
+
+                        +--------------------------+
+                        |        vimdiff           |
+                        |                          |
+                        +--------------------------+
+
+
+ ```
+#开启方法一
+ $ vimdiff file1  file2
+ $ vimdiff -d file1 file2  #左右横屏
+ $ vimdiff -o file1 file2  #上下横屏 
+
+#开启方法二
+ $  vim file1
+  : vertical diffsplit file2 
+
+#交换窗口位置
+  Ctrl-w  K（把当前窗口移到最上边）
+  Ctrl-w  J（把当前窗口移到最下边）
+  Ctrl-w   H（把当前窗口移到最左边）
+  Ctrl-w   L（把当前窗口移到最右边）
+
+#光标移动
+: set noscrollbind    #同步滚动
+
+#跳转
+Ctrl-w ,w | 两个文件间跳转 
+]c        | 跳转下一个差异点
+[c        | 跳转上一个差异点
+2]c       | 跳转到第三个差异点
+
+#文件合并 
+dp (diff put)  | 当前复制到另一个 
+do (diff obtain) | 从另一个复制到当前 
+
+
+#文件操作
+:diffupdate   | 刷新 
+:qa           | 同时退出 
+:wa           | 同时保存 
+
+ ```
 
 
 
@@ -280,7 +401,7 @@ C-w =       | 恢复均等
  
  /d.*an 可以匹配 dan, divan, debian
  
- 单词边界:
+ G单词边界:
  指定单词边界: \< 和 \>
  如: /\<d[a-z]*an\>    匹配以d开始,中间包含任意个小写字母,以an结束的单词
 
@@ -518,5 +639,9 @@ q：结束宏的记录。
 <<：和上面类似，但是反缩进
 gd：到达光标所在处函数或者变量的定义处。
 K：在Man里面查找光标当前所在处的词。
+
+
+
+
 
 
