@@ -70,6 +70,7 @@ $ git log --graph                                  # 查看分支合并图
 $ git log --graph --pretty=oneline --abbrev-commit # 以行方式查看分支合并图
 $ git log --pretty=format:"%h %cd" --name-only -5  # 显示hash和时间
 $ git log --pretty=format:"%h %cd" -5              # 查看修改时间
+$ git rev-parse HEAD > version.txt
 ```
 
 
@@ -269,7 +270,7 @@ $ git config --global https.proxy https://git-proxy-server:443   # git代理加�
 $ git config credential.helper store  #设置保存用户名/密码 (明文!!!)  可在文件查看 ~/.git-credentials
 
 
-# 中文编码
+#中文编码
 $ git config --global i18n.commitencoding utf-8       # 设置提交日志使用utf-8
 $ git config --global i18n.logoutputencoding utf-8    # 设置输出日志时使用utf-8
 $ git config --global core.quotepath false            # 不用双引号引用路径
@@ -283,6 +284,11 @@ $ git config --global alias.cm 'commit -m'   #简化提交
 $ git config --global alias.rv 'remote -v'  #查看远程仓库
 $ git config --global alias.d 'diff'
 $ git config --global alias.dv 'difftool -t vimdiff -y'  #使用vimdiff查看差异
+
+#core.pager指定 Git 运行诸如log、diff等所使用的分页器，
+$ git config --global core.pager ''    # 一页显示
+$ git config --global core.pager 'more'
+$ git config --global core.pager 'less' #默认
 
 
 ```
