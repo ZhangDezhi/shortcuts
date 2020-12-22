@@ -119,3 +119,22 @@ $ cp ` find ~/lib/ -maxdepth 1 -newermt $(date +%Y-%m-%d)` ~/Desktop/
 
 
 ## ftp 
+
+
+## 清理
+df -h ，这个命令用于查看服务器空间
+du -h --max-depth=1，这个命令用于查看当前目录，哪个文件占用最大
+du -sh *，这个命令也用于查看当前目录下各文件及文件夹占用大小
+
+
+
+
+## 安装
+
+```
+#安装vscode
+$ rpm --import https://packages.microsoft.com/keys/microsoft.asc
+$ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+$ yum check-update
+$ sudo yum install code
+```
