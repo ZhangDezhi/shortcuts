@@ -1,20 +1,58 @@
 
 #docker
-## 镜像基本操作
 
+## docker-machine 
 ```bash
-    $ docker search httpd       # 查找镜像
-    $ docker pull httpd         # 下载镜像
-    $ docker images             # 列出本地镜像 
-    $ docker run httpd          # 使用镜像
-    $ docker rmi httpd          # 删除镜像
-    $ docker commit -m="提交信息" -a="zhangdezhi" e218edb10161 Dev/ubuntu:v2  | 提交镜像
-    $ docker build -t runoob/centos:6.7 /dockerfile/    | 构建镜像(需要dockerfile文件)
-    $ docker tag 860c279d2fec runoob/centos:dev  | 设置镜像标签
+#安装
+
+#Linux 
+$ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+ 
+  #macOS
+ $ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+ 
+  #Win(git bash)
+  $ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  mkdir -p "$HOME/bin" &&
+  curl -L $base/docker-machine-Windows-x86_64.exe > "$HOME/bin/docker-machine.exe" &&
+  chmod +x "$HOME/bin/docker-machine.exe"
+
+$ docker-machine version  #查看版本
+$ docker-machine ls       #查看主机列表
+$ docker-machine create --driver virtualbox test  #创建一台名为 test 的机器。 -driver：指定用来创建机器的驱动类型，这里是 virtualbox。
+$ docker-machine create --driver=vmwareworkstation dev
+$ docker-machine ip test      #查看机器的 ip
+$ docker-machine stop test   #停止机器
+$ docker-machine start test  #启动机器
+$ docker-machine ssh test    #进入机器
+$ docker-machine active       #查看当前激活状态的Docker主机
+$ docker-machine config      # 查看当前激活主机连接信息
+$ docker-machine rm dev      # 删除主机
 ```
 
-## dockerhub  
-```bash 
+## Docker基本操作
+
+```bash
+$ docker --version
+
+$ docker run hello-world     #来测试从Docker Hub拉一个图像并启动一个容器
+$ docker run -it ubuntu bash #运行Ubuntu容器
+
+$ docker search httpd       # 查找镜像
+$ docker pull httpd         # 下载镜像
+$ docker images             # 列出本地镜像 
+$ docker run httpd          # 使用镜像
+$ docker rmi httpd          # 删除镜像
+$ docker commit -m="提交信息" -a="zhangdezhi" e218edb10161 Dev/ubuntu:v2  | 提交镜像
+$ docker build -t runoob/centos:6.7 /dockerfile/    | 构建镜像(需要dockerfile文件)
+$ docker tag 860c279d2fec runoob/centos:dev  | 设置镜像标签
+
+#dockerhub  
 $ docker login                              # 登录
 $ docker logout                             # 登出
 $ docker search ubuntu                      # 搜索
@@ -22,6 +60,21 @@ $ docker tag ubuntu:18.04 Zero/ubuntu:18.04 #
 $ docker image ls                           #
 $ docker push Zero/ubuntu:18.04             # 推送
 $ docker search username/ubuntu             # 查询(测试)
+```
+
+
+## 示例
+
+```bash
+$ docker search mysql
+$ docker pull mysql:latest
+$ docker images
+$ docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=iscs200 mysql
+#-p 3306:3306 ：映射容器服务的 3306 端口到宿主机的 3306 端口，外部主机可以直接通过 宿主机ip:3306 访问到 MySQL 的服务
+#MYSQL_ROOT_PASSWORD=123456：设置 MySQL 服务 root 用户的密码。 
+$ docker run -itd --name mysql-dev -p 3306:3306 -e MYSQL_ROOT_PASSWORD=iscs200 mysql:5.6.20
+$ docker ps   #查看是否安装(获得容器id)
+$ docker stop   <容器 ID>  
 ```
 
 ## 容器基本操作
@@ -72,18 +125,6 @@ $docker network ls
 $ docker run -itd --name test1 --network bridge --ip 192.168.44.233 xopens /bin/bash
 ```
 
-## docker-machine 
-```bash
-$ docker-machine ls                              # 列出可用机器
-$ docker-machine create --driver virtualbox test # 创建机器
-$ docker-machine ip dev                          # 查看ip
-$ docker-machine start dev                       # 启动机器
-$ docker-machine sotp dev                        # 停止机器
-$ docker-machine ssh dev                         # 进入机器
-$ docker-machine active                          # 激活docker主机
-$ docker-machine config                          # 查看当前激活主机连接信息
-$ docker-machine rm dev                          # 删除主机
-```
 
 ## docker compose
 ## dockerfile 
@@ -164,3 +205,13 @@ toneloc01/oracle-xe-11g
 ## 开发环境配制
 
 https://www.jb51.net/article/195427.htm
+
+
+
+```cmd
+$ docker --version
+$ docker-compose --version
+$ docker-machine --version
+$ docker run hello-world     #来测试从Docker Hub拉一个图像并启动一个容器
+$ docker run -it ubuntu bash #运行Ubuntu容器
+```

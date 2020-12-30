@@ -186,8 +186,17 @@ $ git remote rename 旧名称  新名称
 
 ```bash
 $ git diff d20f63f 7f79753 --name-only | xargs tar -czvf ../update.tar.gz   #导出两个版本的差异文件
+$ git diff 1450b9bd7e87ee88792c0200c5822be0b89fb67d 02135840a57fc5caafdcf91d36a96f55e71edd3f --name-only | xargs tar -czvf ../update.tar.gz
+
+$ git diff 1450b9bd7e87ee88792c0200c5822be0b89fb67d 02135840a57fc5caafdcf91d36a96f55e71edd3f --name-only | archive --format zip --output /update.zip
+
+#若出现错误: tar: Exiting with failure status due to previous errors
+#可以使用 $  tar zcvf backup.tar.gz my_program/ > /dev/null  查看具体的错误描述
+
+
+
 $ git diff d20f63f 7f79753 --name-only | xargs zip update.zip
-$2020/07/03 git diff d20f63f HEAD --name-only | xargs zip update.zip   #导出到最新版本的文件
+$ git diff d20f63f HEAD --name-only | xargs zip update.zip   #导出到最新版本的文件
 
 #archive命令就是将纯代码打包（默认tar，可以另指定zip等）
 
