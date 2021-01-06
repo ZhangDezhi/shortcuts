@@ -1,6 +1,20 @@
-python -m pip list  | 显示所有模块
-python -m pip install -U pip setuptools  | 升级模块
-python -m pip install matplotlib  | 安装 matplotlib模块
+
+```bash
+$ whereis python   #|查看python路径
+$ whereis Python2
+$ whereis python3
+$ pip list  #| 默认查看python3
+$ pip freeze
+$ python2 -m pip list  #| 显示所有模块
+$ python3 -m pip list  #| 显示所有模块
+$ python -m pip install -U pip setuptools  #| 升级模块
+$ python -m pip install matplotlib  #| 安装 matplotlib模块
+
+$ pip show logzero  #| 查看软件包路径
+```
+
+
+
 
 
 ## 安装模块 
