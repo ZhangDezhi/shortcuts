@@ -1,14 +1,6 @@
 ## 系统
-win    + 空格          | 输入法切换
 shift  + alt           | 中英文切换
-window + 左右          | 实现左屏/右屏
-window + 左右 + 上下   | 实现左右四分之一屏
-window + ctrl + d      | 新建桌面
-window + tab           | 打开任务视图
-window + Shift + S     | 截图
-window + ctrl   + F4   | 删除当前虚拟桌面
-window + ctrl   + D    | 创建虚拟桌面
-window + ctrl   + 左右 | 切换桌面
+
 ### 任务栏
 Window + b             | 定位到任务栏
 Window + t             | 切换任务栏
@@ -20,6 +12,58 @@ Window + Shift +  左右  | 移动窗口到左屏/右屏
 Shift + 任务栏 点击          | 独新开应用程序 
 Shift + Ctrl + 点击任务栏应  | 管理员权限打开
 
+Windows 徽标键	打开或关闭“开始”菜单
+
+快捷键                 | 备注1 | 备注2 | 意义
+window + 空格          |       |       | 输入法切换
+window + 左右          |       |       | 实现左屏/右屏
+window + 左右 + 上下   |       |       | 实现左右四分之一屏
+window + tab           |       |       | 打开任务视图
+Windows  + A           |       |       | 打开“操作中心”
+Windows  + B           |       |       | 将焦点设置到通知区域
+Windows  + D           |       |       | 显示和隐藏桌面
+
+Windows  + E           |       |       | 打开“文件资源管理器”
+Windows  + H           |       |       | 在侦听模式下打开 Cortana
+Windows  + I           |       |       | 打开“设置”
+Windows  + K           |       |       | 打开“连接”快速操作
+Windows  + L           |       |       | 锁定电脑或切换帐户
+Windows  + M           |       |       | 最小化所有窗口
+Windows  + P           |       |       | 选择演示显示模式
+Windows  + R           |       |       | 打开“运行”对话框
+Windows  + S           |       |       | 打开搜素
+Windows  + T           |       |       | 在任务栏上循环切换应用
+Windows  + U           |       |       | 打开“轻松使用设置中心”
+Windows  + V           |       |       | 打开历史剪切板
+Windows  + X           |       |       | 打开“快速链接”菜单
+window + ctrl + d      |       |       | 新建桌面
+
+Windows  + 数字                | 打开桌面，并启动固定到任务栏的位于该数字所表示位置的应用。如果该应用已在运行，则切换到该应用。
+Windows  + Shift + 数字        | 打开桌面，并启动固定到任务栏的位于该数字所表示位置的应用的新实例
+Windows  + Ctrl + 数字         | 打开桌面，并切换到固定到任务栏的位于该数字所表示位置的应用的最后一个活动窗口
+Windows  + Alt + 数字          | 打开桌面，并打开固定到任务栏的位于该数字所表示位置的应用的跳转列表
+Windows  + Ctrl + Shift + 数字 | 打开桌面，并以管理员身份打开位于任务栏上给定位置的应用的新实例    <激活窗口移动虚拟桌面>
+
+### 小工具
+Windows  + Shift + C | 	取色器
+Windows + . | 打开emoji菜单
+Windows  + Alt + D     |       |       | 显示和隐藏桌面上的日期和时间
+
+
+
+Alt + F8	在登录屏幕上显示密码
+
+window + Shift + S     |       |       | 截图
+window + ctrl   + F4   |       |       | 删除当前虚拟桌面
+window + ctrl   + D    |       |       | 创建虚拟桌面
+window + ctrl   + 左右 |       |       | 切换桌面
+
+--------------------------------------------------（如果可用）
+Windows  + F	| 打开“反馈中心”
+Windows  + G	| 打开游戏栏（当游戏处于打开状态时）
+Windows  + J	将焦点设置到 Windows 提示。
+Windows  + O	锁定设备方向
+ 
 
 ## RTX
 Ctrl + Alt + L 提取消息。
