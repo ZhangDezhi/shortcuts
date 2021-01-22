@@ -230,7 +230,7 @@ $ git am --signoff < xxx.patch  #打补丁 (-s或--signoff : commit信息中加�
 
 
 ## git-svn
-
+> yum install install git-svn 
 ```bash
  $ git svn clone https://172.16.0.241:8443/svn/wsgjp/ -r 76896:HEAD --no-metadata --authors-file=svnuser.text --trunk=svnproject --branches=svnbranch yourGitProject
 

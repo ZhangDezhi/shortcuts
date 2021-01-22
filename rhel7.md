@@ -93,4 +93,9 @@ $ ps -ef|grep gnome-shell
 $ kill -9 [进程号]
 ```
 
+```bash
+$ flatpak install  org.flameshot.Flameshot.flatpakref  #火烟截图
+$ flatpak install https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref  #GIMP
+
+```
 
