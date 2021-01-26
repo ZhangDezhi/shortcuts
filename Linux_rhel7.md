@@ -1,10 +1,7 @@
 
-## GUI和CLI
+## 设置默认启动方式
 ```bash
 #切换桌面模式
-$ init 5   #进入图形化界面
-$ init 3   #进入命令介面
-
 $ systemctl set-default graphical.target  #默认GUI
 $ ln -sf  /lib/systemd/system/graphical.target  /etc/systemd/system/default.target  #方法二
 
@@ -17,10 +14,10 @@ $ ln -sf  /lib/systemd/system/multi-user.target  /etc/systemd/system/default.tar
 $ yum grouplist  #显示系统已经安装的组件，和可以安装的组件
 
 #安装Gnome
-$ yum groupinstall -y 'X Window System'            #centos 安装 X window(如果系统安装之初采用最小化安装，那么先安装)
+$ yum groupinstall -y 'X Window System'             #centos 安装 X window(如果系统安装之初采用最小化安装，那么先安装)
 $ yum groupinstall -y 'GNOME Desktop Environment'   #centos 安装 GNOME桌面环境
 $ yum groupinstall -y "GNOME Desktop"　
-$ vim /etc/sysconfig/desktop  #设置默认桌面(方法一)
+$ vim /etc/sysconfig/desktop              #设置默认桌面(方法一)
 DESKTOP="GNOME"
 $ echo "exec gnome-session" >> ~/.xinitrc #设置默认桌面(方法二)
 $ startx  #开启图形界面

@@ -1,15 +1,36 @@
-#系统特殊路径
-##Windows
+# 系统特殊路径
+## Windows
 ```
 %AppData%\Microsoft\Windows\Start Menu\Programs\Startup            | 自启动目录 (用户)
 C:\ProgramData\Microsoft\Windows\Start Menu\Programs\StartUp       | 自启动目录 (系统)
 %AppData%\Microsoft\Windows\SendTo                                 | 发送到目录
 ```
-##Linux
-/usr/share/backgrounds/   壁纸位置
- /usr/share/pixmaps/   GNOME 自带的图片一般在
+## Linux
 
-##macOS 
+``` 
+/
+/bin
+/boot
+/dev
+/etc
+/home
+/lib
+/lost+found
+/mnt
+/opt
+/proc
+/root
+/sbin
+/tmp
+/usr
+/var
+
+/usr/share/backgrounds/   壁纸位置
+/usr/share/pixmaps/   GNOME 自带的图片一般在
+```
+
+
+## macOS 
 
 ================================================================== 系统:
 $TMPDIR    |   临时目录
@@ -25,7 +46,7 @@ $TMPDIR    |   临时目录
 /Library/PrivilegedHelperTools/ | 系统权限路径
 
 /System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/ | 系统图标位置
-/System/Library/CoreServices/SystemFolderLocalizations/           | 本地话语言路径
+/System/Library/CoreServices/SystemFolderLocalizSations/           | 本地话语言路径
 ===brew=============================                              |
 /usr/local/Cellar/                                                | brew 安装路径
 ~/Library/Caches/Homebrew/downloads                               | brew下载路径
