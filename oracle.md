@@ -44,7 +44,6 @@ https://blog.csdn.net/qq_27731689/article/details/103289987
 ## 常用sql语句
 
 ```
-
 conn 用户名/密码 [as sysdba]    --切换用户
 conn sys/sys as sysdba;       --切换管理员
 conn xopens/iscs              --切换普通用户

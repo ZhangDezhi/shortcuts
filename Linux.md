@@ -30,6 +30,11 @@ $ du -sh *            # 这个命令也用于查看当前目录下各文件及�
 $ init 5   #进入图形化界面
 $ init 3   #进入命令介面
 
+## 查看已安装的中文字体
+
+$ fc-list :lang=zh
+
+
 ```
 
 
@@ -129,4 +134,23 @@ $ install git-svn
 ## 安装xfce
 
 
+## 
+$ yum install dconf-editor  #gnome2 的 “注册表编辑器
+$ yum install gconf-editor  #gnome2 的 “注册表编辑器(新)
+$ yum install ntfs-3g       #读取ntfs硬盘
+$ yum -y install alacarte   #自定义应用程序快捷方式
+
+##
+
+$ yum install gnome-tweak-tool
+# https://extensions.gnome.org/
+##
+
+## 安装rar工具
+wget http://rarlab.com/rar/rarlinux-x64-5.1.1.tar.gz
+tar -zxvf rarlinux-x64-5.1.1.tar.gz
+cd rar
+su root
+make
+make install
 ```

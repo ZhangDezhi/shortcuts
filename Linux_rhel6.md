@@ -33,3 +33,13 @@ $ yum info     #获取软件包信息
 $ yum -y remove python-2.7.5-76.el7.x86_64  #卸载包
 
 ```
+
+
+
+
+
+## 操作
+
+Shift + 双击文件夹   | 在本文件夹内打开.  (默认是在新窗口打开)
+backspace | 返回上层目录
+Shift + backspace  | 在本文件夹内 返回上层目录
